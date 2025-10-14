@@ -1,187 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Destaques – Vidal Design Solutions</title>
-  <meta name="description" content="Kits promocionais e produtos em destaque com melhor custo-benefício." />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
-  <script src="cart.js" defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destaques | Vidal Design Solutions</title>
+  <meta name="description" content="Trabalhos e produtos em destaque: adesivos, banners e camisetas personalizadas.">
+  <link rel="stylesheet" href="styles.css"/>
+  <script defer src="cart.js"></script>
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <a href="index.html" class="logo"><img src="logo.png" alt="Vidal Design Solutions" /></a>
-      <div class="nav-links">
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="logo" href="index.html"><img src="logo.png" alt="Vidal Design Solutions"/></a>
+      <nav class="nav">
         <a href="index.html">Início</a>
         <a href="produtos.html">Produtos</a>
-        <a class="active" href="destaques.html">Destaques</a>
+        <a href="destaques.html" class="active">Destaques</a>
         <a href="contato.html">Contato</a>
-        <div class="cart-icon" onclick="toggleCart(true)"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
-      </div>
-    </nav>
+        <a class="cart-link" href="#" id="openCartBtn">Carrinho (<span id="cartCount">0</span>)</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero-destaques">
-    <div class="container">
-      <h1>Ofertas e Kits</h1>
-      <p>Pacotes pensados para o seu negócio com economia e qualidade.</p>
-    </div>
-  </section>
-
   <main class="container">
-    <section class="kits-section">
-      <h2>Kits Promocionais</h2>
-      <p class="section-subtitle">Combinações prontas para facilitar seu pedido.</p>
+    <h1>Destaques</h1>
+    <p>Alguns produtos mais pedidos pelos nossos clientes.</p>
 
-      <div class="kits-grid">
-        <div class="kit-card featured">
-          <span class="kit-badge">Mais Vendido</span>
-          <div class="kit-header">
-            <i class="fas fa-store"></i>
-            <h3>Kit Loja</h3>
-          </div>
-          <p class="kit-desc">Ideal para quem está iniciando: banner, adesivos e cartão de visitas.</p>
-          <ul class="kit-items">
-            <li><i class="fas fa-check"></i> 1 Banner 80x120</li>
-            <li><i class="fas fa-check"></i> 50 Adesivos 10x10</li>
-            <li><i class="fas fa-check"></i> 500 Cartões de Visita</li>
-          </ul>
-          <div class="kit-price">
-            <div class="old-price">R$ 380,00</div>
-            <div class="new-price">R$ 329,00</div>
-            <div class="discount">–13%</div>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Kit Loja', 329)">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="kit-card">
-          <div class="kit-header">
-            <i class="fas fa-bullhorn"></i>
-            <h3>Kit Promo</h3>
-          </div>
-          <p class="kit-desc">Destaque suas promoções com material visual impactante.</p>
-          <ul class="kit-items">
-            <li><i class="fas fa-check"></i> 2 Banners 80x120</li>
-            <li><i class="fas fa-check"></i> 100 Adesivos 7x7</li>
-          </ul>
-          <div class="kit-price">
-            <div class="old-price">R$ 350,00</div>
-            <div class="new-price">R$ 299,00</div>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Kit Promo', 299)">Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="kit-card">
-          <div class="kit-header">
-            <i class="fas fa-tshirt"></i>
-            <h3>Kit Camisetas</h3>
-          </div>
-          <p class="kit-desc">Perfeito para equipes e eventos.</p>
-          <ul class="kit-items">
-            <li><i class="fas fa-check"></i> 10 Camisetas Personalizadas</li>
-          </ul>
-          <div class="kit-price">
-            <div class="old-price">R$ 420,00</div>
-            <div class="new-price">R$ 390,00</div>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Kit Camisetas (10 un)', 390)">Adicionar ao Carrinho</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="produtos-destaque">
-      <div class="container">
-        <h2>Produtos em Destaque</h2>
-        <p class="section-subtitle">Seleção com melhor custo-benefício.</p>
-        <div class="produtos-grid">
-          <div class="produto-card">
-            <img src="https://placehold.co/800x500?text=Adesivo+Vinil" alt="Adesivo Vinil" />
-            <h3>Adesivo Vinil</h3>
-            <p class="produto-desc">Resistente e com impressão de alta definição.</p>
-            <div class="produto-price">R$ 120,00/m²</div>
-            <button class="btn-primary" onclick="addToCart('Adesivo Vinil (1 m²)', 120)">Adicionar (1 m²)</button>
-          </div>
-          <div class="produto-card">
-            <img src="https://placehold.co/800x500?text=Banner" alt="Banner" />
-            <h3>Banner 80x120</h3>
-            <p class="produto-desc">Clássico e versátil para campanhas.</p>
-            <div class="produto-price">R$ 110,00</div>
-            <button class="btn-primary" onclick="addToCart('Banner 80x120', 110)">Adicionar</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="benefits-section">
-      <h2>Por que comprar com a Vidal?</h2>
-      <div class="benefits-grid container">
-        <div class="benefit-card">
-          <i class="fas fa-star"></i>
-          <h3>Qualidade</h3>
-          <p>Materiais de primeira e impressão nítida.</p>
-        </div>
-        <div class="benefit-card">
-          <i class="fas fa-rocket"></i>
-          <h3>Agilidade</h3>
-          <p>Entrega rápida e prazos cumpridos.</p>
-        </div>
-        <div class="benefit-card">
-          <i class="fas fa-comments"></i>
-          <h3>Atendimento</h3>
-          <p>WhatsApp com resposta ágil e acompanhamento.</p>
-        </div>
-      </div>
-    </section>
+    <div class="grid">
+      <article class="product-card">
+        <img src="https://www.angraf.com.br/wp-content/images/produtos/large/366_gysxshxvhh1793ct3bjyr.jpg" alt="Adesivo impresso recortado"/>
+        <h3>Adesivo recortado</h3>
+        <p>Impressão digital com recorte, acabamento preciso.</p>
+        <div class="price">A partir de R$ 90,00/m²</div>
+        <button class="btn btn-sm" data-product='{"id":"adesivo","name":"Adesivo recortado","price":90,"unit":"m2","minArea":0.5}'>Adicionar</button>
+      </article>
+      <article class="product-card">
+        <img src="https://www.revendauainews.com.br/uploads/produtos/banner-lona-440-tamanho-diversos-lona-440-impressao-uv-bastao-ponteira-e-cordao-4x0-1714776806154298099566356ae63aa1b.png" alt="Banner impresso"/>
+        <h3>Banner Lona</h3>
+        <p>Lona 440g com impressão UV, ideal para campanhas.</p>
+        <div class="price">A partir de R$ 75,00/m²</div>
+        <button class="btn btn-sm" data-product='{"id":"banner","name":"Banner lona 440g","price":75,"unit":"m2","minArea":0.5}'>Adicionar</button>
+      </article>
+      <article class="product-card">
+        <img src="https://express.bonjourestamparia.com/cdn/shop/files/camiseta-marrom.png?crop=center&height=553&v=1737380985&width=461" alt="Camiseta personalizada"/>
+        <h3>Camiseta</h3>
+        <p>Camisetas personalizadas em diversas cores e tamanhos.</p>
+        <div class="price">A partir de R$ 35,00 (unitário)</div>
+        <button class="btn btn-sm" data-product='{"id":"camiseta","name":"Camiseta personalizada","price":35,"unit":"un","minQty":1}'>Adicionar</button>
+      </article>
+    </div>
   </main>
 
-  <aside id="cartSidebar" class="cart-sidebar">
-    <div class="cart-header">
-      <h3>Seu Carrinho</h3>
-      <button class="close-cart" onclick="toggleCart(false)">&times;</button>
-    </div>
-    <div id="cartItems" class="cart-items"></div>
-    <div class="cart-footer">
-      <div class="cart-total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
-      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar PDF</button>
-      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar no WhatsApp</button>
-    </div>
-  </aside>
-
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-section">
-        <h4>Vidal Design Solutions</h4>
-        <p>WhatsApp: +55 (11) 96864-9673</p>
-        <p>E-mail: vidaldesignsolutions@gmail.com</p>
-        <p>Endereço: Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
-        <div class="social-links">
-          <a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener"><i class="fas fa-star"></i></a>
-          <a href="https://wa.me/5511968649673" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>Vidal Design Solutions</strong><br/>
+        Rua Antonio Cordeiro, 57 – CEP 08715-470<br/>
+        Mogi das Cruzes – SP<br/>
+        Tel/WhatsApp: <a href="https://wa.me/5511968649673">+55 11 96864-9673</a><br/>
+        Email: <a href="mailto:vidaldesignsolutions@gmail.com">vidaldesignsolutions@gmail.com</a>
       </div>
-      <div class="footer-section">
-        <h4>Links</h4>
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="destaques.html">Destaques</a></li>
-          <li><a href="contato.html">Contato</a></li>
-          <li><a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener">Avaliações no Google</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Atendimento</h4>
-        <p>Seg a Sex: 09h às 18h</p>
-        <p>Orçamentos por WhatsApp 24h</p>
-        <a class="btn-contact" href="https://wa.me/5511968649673?text=Olá!%20Preciso%20de%20um%20orçamento." target="_blank" rel="noopener">Pedir Orçamento</a>
-      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="destaques.html">Destaques</a>
+        <a href="contato.html">Contato</a>
+      </nav>
     </div>
-    <div class="footer-bottom">© <span id="year"></span> Vidal Design Solutions. Todos os direitos reservados.</div>
+    <div class="copy">© <span id="year"></span> Vidal Design Solutions. Todos os direitos reservados.</div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <div id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Carrinho</h3>
+      <button id="closeCartBtn" aria-label="Fechar">×</button>
+    </div>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: R$ <span id="cartTotal">0,00</span></div>
+      <button class="btn btn-primary" id="checkoutBtn">Finalizar pelo WhatsApp</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('[data-product]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = JSON.parse(btn.getAttribute('data-product'));
+        window.Cart.addItem(p);
+        document.getElementById('openCartBtn').click();
+      });
+    });
+  </script>
 </body>
 </html>
