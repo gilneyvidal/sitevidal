@@ -1,295 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Kits promocionais e produtos em destaque com preços especiais.">
-  <title>Destaques e Promoções - Vidal Design Solutions</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destaques – Vidal Design Solutions</title>
+  <meta name="description" content="Kits promocionais e produtos em destaque com melhor custo-benefício." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+  <script src="cart.js" defer></script>
 </head>
 <body>
   <header>
     <nav class="container">
-      <div class="logo"><img src="logo.png" alt="Vidal Design Solutions"></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="produtos.html">Produtos</a></li>
-        <li><a class="active" href="destaques.html">Destaques</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-      <div class="cart-icon" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i><span class="cart-count">0</span>
+      <a href="index.html" class="logo"><img src="logo.png" alt="Vidal Design Solutions" /></a>
+      <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a class="active" href="destaques.html">Destaques</a>
+        <a href="contato.html">Contato</a>
+        <div class="cart-icon" onclick="toggleCart(true)"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
       </div>
     </nav>
   </header>
 
-  <div class="breadcrumb">
-    <div class="container">
-      <a href="index.html">Início</a> / <span>Destaques</span>
-    </div>
-  </div>
-
   <section class="hero-destaques">
     <div class="container">
-      <h1>🔥 Ofertas e Kits Promocionais</h1>
-      <p>Aproveite nossos kits especiais com preços imperdíveis!</p>
+      <h1>Ofertas e Kits</h1>
+      <p>Pacotes pensados para o seu negócio com economia e qualidade.</p>
     </div>
   </section>
 
-  <section class="kits-section">
-    <div class="container">
+  <main class="container">
+    <section class="kits-section">
       <h2>Kits Promocionais</h2>
-      <p class="section-subtitle">Pacotes completos com desconto especial</p>
+      <p class="section-subtitle">Combinações prontas para facilitar seu pedido.</p>
 
       <div class="kits-grid">
         <div class="kit-card featured">
-          <div class="kit-badge">MAIS VENDIDO</div>
-          <div class="kit-header"><i class="fas fa-briefcase"></i><h3>Kit Empreendedor</h3></div>
-          <p class="kit-desc">Tudo que você precisa para começar seu negócio</p>
+          <span class="kit-badge">Mais Vendido</span>
+          <div class="kit-header">
+            <i class="fas fa-store"></i>
+            <h3>Kit Loja</h3>
+          </div>
+          <p class="kit-desc">Ideal para quem está iniciando: banner, adesivos e cartão de visitas.</p>
           <ul class="kit-items">
+            <li><i class="fas fa-check"></i> 1 Banner 80x120</li>
+            <li><i class="fas fa-check"></i> 50 Adesivos 10x10</li>
             <li><i class="fas fa-check"></i> 500 Cartões de Visita</li>
-            <li><i class="fas fa-check"></i> 1000 Panfletos A5</li>
-            <li><i class="fas fa-check"></i> 1 Banner 1x1m</li>
-            <li><i class="fas fa-check"></i> 100 Adesivos Personalizados</li>
           </ul>
           <div class="kit-price">
-            <span class="old-price">R$ 580,00</span>
-            <span class="new-price">R$ 450,00</span>
-            <span class="discount">22% OFF</span>
+            <div class="old-price">R$ 380,00</div>
+            <div class="new-price">R$ 329,00</div>
+            <div class="discount">–13%</div>
           </div>
-          <button class="btn-primary" onclick="addToCart('Kit Empreendedor', 450.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+          <button class="btn-primary" onclick="addToCart('Kit Loja', 329)">Adicionar ao Carrinho</button>
         </div>
 
         <div class="kit-card">
-          <div class="kit-badge">PROMOÇÃO</div>
-          <div class="kit-header"><i class="fas fa-calendar-alt"></i><h3>Kit Eventos</h3></div>
-          <p class="kit-desc">Perfeito para divulgar seu evento</p>
+          <div class="kit-header">
+            <i class="fas fa-bullhorn"></i>
+            <h3>Kit Promo</h3>
+          </div>
+          <p class="kit-desc">Destaque suas promoções com material visual impactante.</p>
           <ul class="kit-items">
-            <li><i class="fas fa-check"></i> 2 Banners 1x2m</li>
-            <li><i class="fas fa-check"></i> 2000 Panfletos A5</li>
-            <li><i class="fas fa-check"></i> 200 Adesivos</li>
-            <li><i class="fas fa-check"></i> 1 Faixa 5x1m</li>
+            <li><i class="fas fa-check"></i> 2 Banners 80x120</li>
+            <li><i class="fas fa-check"></i> 100 Adesivos 7x7</li>
           </ul>
           <div class="kit-price">
-            <span class="old-price">R$ 850,00</span>
-            <span class="new-price">R$ 680,00</span>
-            <span class="discount">20% OFF</span>
+            <div class="old-price">R$ 350,00</div>
+            <div class="new-price">R$ 299,00</div>
           </div>
-          <button class="btn-primary" onclick="addToCart('Kit Eventos', 680.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+          <button class="btn-primary" onclick="addToCart('Kit Promo', 299)">Adicionar ao Carrinho</button>
         </div>
 
         <div class="kit-card">
-          <div class="kit-header"><i class="fas fa-store"></i><h3>Kit Loja Completa</h3></div>
-          <p class="kit-desc">Identidade visual completa para sua loja</p>
+          <div class="kit-header">
+            <i class="fas fa-tshirt"></i>
+            <h3>Kit Camisetas</h3>
+          </div>
+          <p class="kit-desc">Perfeito para equipes e eventos.</p>
           <ul class="kit-items">
-            <li><i class="fas fa-check"></i> 1 Placa ACM 1x0,5m</li>
-            <li><i class="fas fa-check"></i> 1000 Cartões de Visita</li>
-            <li><i class="fas fa-check"></i> 2 Banners Roll-Up</li>
-            <li><i class="fas fa-check"></i> 500 Sacolas Personalizadas</li>
+            <li><i class="fas fa-check"></i> 10 Camisetas Personalizadas</li>
           </ul>
           <div class="kit-price">
-            <span class="old-price">R$ 1.200,00</span>
-            <span class="new-price">R$ 950,00</span>
-            <span class="discount">21% OFF</span>
+            <div class="old-price">R$ 420,00</div>
+            <div class="new-price">R$ 390,00</div>
           </div>
-          <button class="btn-primary" onclick="addToCart('Kit Loja Completa', 950.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="kit-card">
-          <div class="kit-header"><i class="fas fa-star"></i><h3>Kit Básico</h3></div>
-          <p class="kit-desc">Ideal para quem está começando</p>
-          <ul class="kit-items">
-            <li><i class="fas fa-check"></i> 300 Cartões de Visita</li>
-            <li><i class="fas fa-check"></i> 500 Panfletos A5</li>
-            <li><i class="fas fa-check"></i> 50 Adesivos</li>
-          </ul>
-          <div class="kit-price">
-            <span class="old-price">R$ 320,00</span>
-            <span class="new-price">R$ 250,00</span>
-            <span class="discount">22% OFF</span>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Kit Básico', 250.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="kit-card">
-          <div class="kit-header"><i class="fas fa-utensils"></i><h3>Kit Restaurante</h3></div>
-          <p class="kit-desc">Tudo para seu restaurante ou delivery</p>
-          <ul class="kit-items">
-            <li><i class="fas fa-check"></i> 500 Cardápios A4</li>
-            <li><i class="fas fa-check"></i> 1000 Panfletos</li>
-            <li><i class="fas fa-check"></i> 200 Adesivos para Delivery</li>
-            <li><i class="fas fa-check"></i> 1 Banner 1x1,5m</li>
-          </ul>
-          <div class="kit-price">
-            <span class="old-price">R$ 720,00</span>
-            <span class="new-price">R$ 580,00</span>
-            <span class="discount">19% OFF</span>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Kit Restaurante', 580.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="kit-card">
-          <div class="kit-header"><i class="fas fa-home"></i><h3>Kit Imobiliária</h3></div>
-          <p class="kit-desc">Material profissional para corretores</p>
-          <ul class="kit-items">
-            <li><i class="fas fa-check"></i> 500 Cartões de Visita</li>
-            <li><i class="fas fa-check"></i> 10 Placas "Vende-se" 50x70cm</li>
-            <li><i class="fas fa-check"></i> 1000 Panfletos</li>
-            <li><i class="fas fa-check"></i> 100 Pastas Personalizadas</li>
-          </ul>
-          <div class="kit-price">
-            <span class="old-price">R$ 980,00</span>
-            <span class="new-price">R$ 780,00</span>
-            <span class="discount">20% OFF</span>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Kit Imobiliária', 780.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+          <button class="btn-primary" onclick="addToCart('Kit Camisetas (10 un)', 390)">Adicionar ao Carrinho</button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="produtos-destaque">
-    <div class="container">
-      <h2>Produtos em Destaque</h2>
-      <p class="section-subtitle">Nossos produtos mais procurados com preços especiais</p>
-
-      <div class="produtos-grid">
-        <div class="produto-card">
-          <div class="produto-badge">-25%</div>
-          <img src="https://placehold.co/300x300/4CAF50/white?text=Banner+Promocional" alt="Banner Promocional">
-          <h3>Banner Lona 440g - 2x1m</h3>
-          <p class="produto-desc">Banner em lona premium com acabamento perfeito</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-ruler"></i> 2x1 metros</span>
-            <span><i class="fas fa-clock"></i> 3 dias</span>
+    <section class="produtos-destaque">
+      <div class="container">
+        <h2>Produtos em Destaque</h2>
+        <p class="section-subtitle">Seleção com melhor custo-benefício.</p>
+        <div class="produtos-grid">
+          <div class="produto-card">
+            <img src="https://placehold.co/800x500?text=Adesivo+Vinil" alt="Adesivo Vinil" />
+            <h3>Adesivo Vinil</h3>
+            <p class="produto-desc">Resistente e com impressão de alta definição.</p>
+            <div class="produto-price">R$ 120,00/m²</div>
+            <button class="btn-primary" onclick="addToCart('Adesivo Vinil (1 m²)', 120)">Adicionar (1 m²)</button>
           </div>
-          <div class="price-box">
-            <span class="old-price">R$ 200,00</span>
-            <p class="produto-price">R$ 150,00</p>
+          <div class="produto-card">
+            <img src="https://placehold.co/800x500?text=Banner" alt="Banner" />
+            <h3>Banner 80x120</h3>
+            <p class="produto-desc">Clássico e versátil para campanhas.</p>
+            <div class="produto-price">R$ 110,00</div>
+            <button class="btn-primary" onclick="addToCart('Banner 80x120', 110)">Adicionar</button>
           </div>
-          <button class="btn-primary" onclick="addToCart('Banner Lona 440g - 2x1m', 150.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="produto-card">
-          <div class="produto-badge">-30%</div>
-          <img src="https://placehold.co/300x300/2196F3/white?text=Cartoes+Visita" alt="Cartões de Visita">
-          <h3>Cartões de Visita - 1000un</h3>
-          <p class="produto-desc">Papel couché 300g com verniz localizado</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-layer-group"></i> 1000 unidades</span>
-            <span><i class="fas fa-clock"></i> 2 dias</span>
-          </div>
-          <div class="price-box">
-            <span class="old-price">R$ 200,00</span>
-            <p class="produto-price">R$ 140,00</p>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Cartões de Visita - 1000un', 140.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="produto-card">
-          <div class="produto-badge">-20%</div>
-          <img src="https://placehold.co/300x300/FF9800/white?text=Adesivos+Vinil" alt="Adesivos Vinil">
-          <h3>Adesivos Vinil - 100un</h3>
-          <p class="produto-desc">Adesivos recortados em vinil de alta qualidade</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-cut"></i> Recorte incluso</span>
-            <span><i class="fas fa-clock"></i> 4 dias</span>
-          </div>
-          <div class="price-box">
-            <span class="old-price">R$ 150,00</span>
-            <p class="produto-price">R$ 120,00</p>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Adesivos Vinil - 100un', 120.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
-        </div>
-
-        <div class="produto-card">
-          <div class="produto-badge">NOVO</div>
-          <img src="https://placehold.co/300x300/E91E63/white?text=Placa+ACM" alt="Placa ACM">
-          <h3>Placa ACM - 1x0,5m</h3>
-          <p class="produto-desc">Placa em alumínio composto com impressão UV</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-shield-alt"></i> Alta durabilidade</span>
-            <span><i class="fas fa-clock"></i> 5 dias</span>
-          </div>
-          <div class="price-box">
-            <p class="produto-price">R$ 180,00</p>
-          </div>
-          <button class="btn-primary" onclick="addToCart('Placa ACM - 1x0,5m', 180.00)"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="benefits-section">
-    <div class="container">
-      <h2>Por que escolher nossos kits?</h2>
-      <div class="benefits-grid">
-        <div class="benefit-card"><i class="fas fa-piggy-bank"></i><h3>Economia Garantida</h3><p>Até 30% de desconto em relação aos produtos avulsos</p></div>
-        <div class="benefit-card"><i class="fas fa-box"></i><h3>Tudo em Um Só Lugar</h3><p>Receba todos os produtos juntos, sem complicação</p></div>
-        <div class="benefit-card"><i class="fas fa-rocket"></i><h3>Entrega Rápida</h3><p>Prioridade na produção dos kits promocionais</p></div>
-        <div class="benefit-card"><i class="fas fa-paint-brush"></i><h3>Design Incluso</h3><p>Arte profissional sem custo adicional</p></div>
+    <section class="benefits-section">
+      <h2>Por que comprar com a Vidal?</h2>
+      <div class="benefits-grid container">
+        <div class="benefit-card">
+          <i class="fas fa-star"></i>
+          <h3>Qualidade</h3>
+          <p>Materiais de primeira e impressão nítida.</p>
+        </div>
+        <div class="benefit-card">
+          <i class="fas fa-rocket"></i>
+          <h3>Agilidade</h3>
+          <p>Entrega rápida e prazos cumpridos.</p>
+        </div>
+        <div class="benefit-card">
+          <i class="fas fa-comments"></i>
+          <h3>Atendimento</h3>
+          <p>WhatsApp com resposta ágil e acompanhamento.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section class="cta-section">
-    <div class="container">
-      <h2>Precisa de um Kit Personalizado?</h2>
-      <p>Montamos um pacote especial de acordo com suas necessidades</p>
-      <a href="contato.html" class="btn-secondary">Solicitar Orçamento Personalizado</a>
-    </div>
-  </section>
-
-  <div id="cartSidebar" class="cart-sidebar">
+  <aside id="cartSidebar" class="cart-sidebar">
     <div class="cart-header">
       <h3>Seu Carrinho</h3>
-      <button onclick="toggleCart()" class="close-cart">&times;</button>
+      <button class="close-cart" onclick="toggleCart(false)">&times;</button>
     </div>
     <div id="cartItems" class="cart-items"></div>
     <div class="cart-footer">
-      <div class="cart-total">
-        <span>Total:</span>
-        <span id="cartTotal">R$ 0,00</span>
-      </div>
-      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar Orçamento PDF</button>
-      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp</button>
+      <div class="cart-total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar PDF</button>
+      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar no WhatsApp</button>
     </div>
-  </div>
+  </aside>
 
   <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Vidal Design Solutions</h4>
-          <p>Soluções gráficas profissionais com qualidade e agilidade.</p>
-          <div class="social-links">
-            <a href="https://instagram.com/vidaldesignsolutions" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5511968649673" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Links Rápidos</h4>
-          <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="produtos.html">Produtos</a></li>
-            <li><a href="destaques.html">Destaques</a></li>
-            <li><a href="contato.html">Contato</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contato</h4>
-          <p><i class="fas fa-phone"></i> +55 (11) 96864-9673</p>
-          <p><i class="fas fa-envelope"></i> vidaldesignsolutions@gmail.com</p>
-          <p><i class="fas fa-map-marker-alt"></i> Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h4>Vidal Design Solutions</h4>
+        <p>WhatsApp: +55 (11) 96864-9673</p>
+        <p>E-mail: vidaldesignsolutions@gmail.com</p>
+        <p>Endereço: Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
+        <div class="social-links">
+          <a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener"><i class="fas fa-star"></i></a>
+          <a href="https://wa.me/5511968649673" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Vidal Design Solutions. Todos os direitos reservados.</p>
+      <div class="footer-section">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="destaques.html">Destaques</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener">Avaliações no Google</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Atendimento</h4>
+        <p>Seg a Sex: 09h às 18h</p>
+        <p>Orçamentos por WhatsApp 24h</p>
+        <a class="btn-contact" href="https://wa.me/5511968649673?text=Olá!%20Preciso%20de%20um%20orçamento." target="_blank" rel="noopener">Pedir Orçamento</a>
       </div>
     </div>
+    <div class="footer-bottom">© <span id="year"></span> Vidal Design Solutions. Todos os direitos reservados.</div>
   </footer>
 
-  <script src="cart.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
