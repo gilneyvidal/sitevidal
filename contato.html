@@ -1,190 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contato – Vidal Design Solutions</title>
-  <meta name="description" content="Fale com a Vidal Design Solutions. WhatsApp, e-mail e endereço. Orçamento rápido e atendimento personalizado." />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
-  <script src="cart.js" defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato | Vidal Design Solutions</title>
+  <meta name="description" content="Fale com a Vidal Design Solutions. Orçamentos e atendimento via WhatsApp, telefone e email.">
+  <link rel="stylesheet" href="styles.css"/>
+  <script defer src="cart.js"></script>
 </head>
 <body>
-  <header>
-    <nav class="container">
-      <a href="index.html" class="logo"><img src="logo.png" alt="Vidal Design Solutions" /></a>
-      <div class="nav-links">
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a class="logo" href="index.html"><img src="logo.png" alt="Vidal Design Solutions"/></a>
+      <nav class="nav">
         <a href="index.html">Início</a>
         <a href="produtos.html">Produtos</a>
         <a href="destaques.html">Destaques</a>
-        <a class="active" href="contato.html">Contato</a>
-        <div class="cart-icon" onclick="toggleCart(true)"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
-      </div>
-    </nav>
+        <a href="contato.html" class="active">Contato</a>
+        <a class="cart-link" href="#" id="openCartBtn">Carrinho (<span id="cartCount">0</span>)</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="contato-hero">
-    <div class="container">
-      <h1>Fale Conosco</h1>
-      <p>Orçamentos rápidos e atendimento personalizado.</p>
-    </div>
-  </section>
+  <main class="container">
+    <h1>Contato</h1>
 
-  <section class="contato-info">
-    <div class="container contato-grid">
-      <div class="contato-card">
-        <div class="contato-icon"><i class="fab fa-whatsapp"></i></div>
-        <h3>WhatsApp</h3>
-        <p>+55 (11) 96864-9673</p>
-        <a class="btn-whatsapp" href="https://wa.me/5511968649673?text=Olá!%20Preciso%20de%20um%20orçamento." target="_blank" rel="noopener">Abrir WhatsApp</a>
-      </div>
-      <div class="contato-card">
-        <div class="contato-icon"><i class="fas fa-envelope"></i></div>
-        <h3>E-mail</h3>
-        <p>vidaldesignsolutions@gmail.com</p>
-        <a class="btn-secondary" href="mailto:vidaldesignsolutions@gmail.com">Enviar E-mail</a>
-      </div>
-      <div class="contato-card">
-        <div class="contato-icon"><i class="fas fa-map-marker-alt"></i></div>
-        <h3>Endereço</h3>
-        <p>Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
-        <a class="btn-secondary" href="https://www.google.com/maps/search/?api=1&query=Rua%20Antonio%20Cordeiro%2C%2057%20Mogi%20das%20Cruzes%20SP" target="_blank" rel="noopener">Ver no mapa</a>
-      </div>
-    </div>
-  </section>
+    <div class="contact-grid">
+      <div>
+        <h3>Fale conosco</h3>
+        <p><strong>Endereço:</strong> Rua Antonio Cordeiro, 57 – CEP 08715-470, Mogi das Cruzes – SP</p>
+        <p><strong>WhatsApp:</strong> <a target="_blank" rel="noopener" href="https://wa.me/5511968649673">+55 11 96864-9673</a></p>
+        <p><strong>Email:</strong> <a href="mailto:vidaldesignsolutions@gmail.com">vidaldesignsolutions@gmail.com</a></p>
+        <p><strong>Horário:</strong> Seg–Sex 08:00–18:00, Sáb 09:00–13:00</p>
 
-  <section class="contato-form-section">
-    <div class="container form-wrapper">
-      <div class="form-info">
-        <h2>Vamos iniciar seu projeto?</h2>
-        <p>Envie as informações básicas e retornaremos rapidamente.</p>
-        <div class="form-benefits">
-          <div class="form-benefit"><i class="fas fa-check-circle"></i> Atendimento ágil</div>
-          <div class="form-benefit"><i class="fas fa-check-circle"></i> Orçamento transparente</div>
-          <div class="form-benefit"><i class="fas fa-check-circle"></i> Materiais de qualidade</div>
-        </div>
-        <div class="horario-atendimento">
-          <h3><i class="far fa-clock"></i> Horário de Atendimento</h3>
-          <p>Segunda a Sexta: 09h às 18h</p>
-          <p>WhatsApp 24h para orçamentos</p>
-          <a class="btn-secondary" href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener"><i class="fas fa-star"></i> Avaliações no Google</a>
-        </div>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/5511968649673?text=Olá!%20Quero%20um%20orçamento.">Chamar no WhatsApp</a>
       </div>
+      <div>
+        <h3>Localização</h3>
+        <iframe
+          title="Mapa - Vidal Design Solutions"
+          src="https://www.google.com/maps?q=Rua%20Antonio%20Cordeiro%2C%2057%20Mogi%20das%20Cruzes&output=embed"
+          style="border:0;width:100%;height:320px" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </main>
 
-      <div class="form-container">
-        <div class="form-group">
-          <label>Nome</label>
-          <input id="fNome" type="text" placeholder="Seu nome" />
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>WhatsApp</label>
-            <input id="fWhats" type="tel" placeholder="(11) 9xxxx-xxxx" />
-          </div>
-          <div class="form-group">
-            <label>E-mail</label>
-            <input id="fEmail" type="email" placeholder="seu@email.com" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Tipo de serviço</label>
-          <select id="fTipo">
-            <option>Adesivo</option>
-            <option>Banner</option>
-            <option>Lona</option>
-            <option>Impressos</option>
-            <option>Camiseta</option>
-            <option>Outro</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Mensagem</label>
-          <textarea id="fMsg" rows="5" placeholder="Descreva o que precisa..."></textarea>
-        </div>
-        <button class="btn-submit" onclick="enviarContatoWhats()">Enviar via WhatsApp</button>
-        <div id="formFeedback" class="form-message" style="display:none;"></div>
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>Vidal Design Solutions</strong><br/>
+        Rua Antonio Cordeiro, 57 – CEP 08715-470<br/>
+        Mogi das Cruzes – SP<br/>
+        Tel/WhatsApp: <a href="https://wa.me/5511968649673">+55 11 96864-9673</a><br/>
+        Email: <a href="mailto:vidaldesignsolutions@gmail.com">vidaldesignsolutions@gmail.com</a>
       </div>
+      <nav class="footer-nav">
+        <a href="index.html">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="destaques.html">Destaques</a>
+        <a href="contato.html">Contato</a>
+      </nav>
     </div>
-  </section>
-
-  <section class="mapa-section">
-    <div class="container">
-      <h2>Onde estamos</h2>
-      <div class="mapa-wrapper">
-        <iframe title="Mapa" src="https://www.google.com/maps?q=Rua%20Antonio%20Cordeiro%2C%2057%20Mogi%20das%20Cruzes%20SP&output=embed" width="100%" height="420" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <p class="mapa-endereco"><i class="fas fa-location-dot"></i> Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
-    </div>
-  </section>
-
-  <aside id="cartSidebar" class="cart-sidebar">
-    <div class="cart-header">
-      <h3>Seu Carrinho</h3>
-      <button class="close-cart" onclick="toggleCart(false)">&times;</button>
-    </div>
-    <div id="cartItems" class="cart-items"></div>
-    <div class="cart-footer">
-      <div class="cart-total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
-      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar PDF</button>
-      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar no WhatsApp</button>
-    </div>
-  </aside>
-
-  <footer>
-    <div class="container footer-content">
-      <div class="footer-section">
-        <h4>Vidal Design Solutions</h4>
-        <p>WhatsApp: +55 (11) 96864-9673</p>
-        <p>E-mail: vidaldesignsolutions@gmail.com</p>
-        <p>Endereço: Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
-        <div class="social-links">
-          <a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener"><i class="fas fa-star"></i></a>
-          <a href="https://wa.me/5511968649673" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-      </div>
-      <div class="footer-section">
-        <h4>Links</h4>
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="produtos.html">Produtos</a></li>
-          <li><a href="destaques.html">Destaques</a></li>
-          <li><a href="contato.html">Contato</a></li>
-          <li><a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener">Avaliações no Google</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Atendimento</h4>
-        <p>Seg a Sex: 09h às 18h</p>
-        <p>Orçamentos por WhatsApp 24h</p>
-        <a class="btn-contact" href="https://wa.me/5511968649673?text=Olá!%20Preciso%20de%20um%20orçamento." target="_blank" rel="noopener">Pedir Orçamento</a>
-      </div>
-    </div>
-    <div class="footer-bottom">© <span id="year"></span> Vidal Design Solutions. Todos os direitos reservados.</div>
+    <div class="copy">© <span id="year"></span> Vidal Design Solutions. Todos os direitos reservados.</div>
   </footer>
+
+  <div id="cartDrawer" class="cart-drawer" aria-hidden="true">
+    <div class="cart-header">
+      <h3>Carrinho</h3>
+      <button id="closeCartBtn" aria-label="Fechar">×</button>
+    </div>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">Total: R$ <span id="cartTotal">0,00</span></div>
+      <button class="btn btn-primary" id="checkoutBtn">Finalizar pelo WhatsApp</button>
+    </div>
+  </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    function enviarContatoWhats() {
-      const nome = document.getElementById('fNome').value.trim();
-      const whats = document.getElementById('fWhats').value.trim();
-      const email = document.getElementById('fEmail').value.trim();
-      const tipo = document.getElementById('fTipo').value;
-      const msg = document.getElementById('fMsg').value.trim();
-
-      const texto = `Olá!%20Quero%20um%20orçamento.%0A%0A` +
-        `Nome:%20${encodeURIComponent(nome)}%0A` +
-        `WhatsApp:%20${encodeURIComponent(whats)}%0A` +
-        `E-mail:%20${encodeURIComponent(email)}%0A` +
-        `Serviço:%20${encodeURIComponent(tipo)}%0A` +
-        `Mensagem:%20${encodeURIComponent(msg)}`;
-
-      window.open(`https://wa.me/5511968649673?text=${texto}`, '_blank');
-      const fb = document.getElementById('formFeedback');
-      fb.className = 'form-message success';
-      fb.innerHTML = '<i class="fas fa-check-circle"></i><div>Mensagem aberta no WhatsApp. Responderemos em breve.</div>';
-      fb.style.display = 'block';
-    }
   </script>
 </body>
 </html>
