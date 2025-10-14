@@ -1,384 +1,216 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Catálogo completo de produtos gráficos - Adesivos, Banners, Placas, Lonas, Impressos e Camisetas.">
-  <title>Produtos - Vidal Design Solutions</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos – Vidal Design Solutions</title>
+  <meta name="description" content="Catálogo de produtos: adesivos, banners, placas, lonas, impressos e camisetas personalizadas." />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+  <script src="cart.js" defer></script>
 </head>
 <body>
   <header>
     <nav class="container">
-      <div class="logo"><img src="logo.png" alt="Vidal Design Solutions"></div>
-      <ul class="nav-links">
-        <li><a href="index.html">Início</a></li>
-        <li><a class="active" href="produtos.html">Produtos</a></li>
-        <li><a href="destaques.html">Destaques</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-      <div class="cart-icon" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i><span class="cart-count">0</span>
+      <a href="index.html" class="logo"><img src="logo.png" alt="Vidal Design Solutions" /></a>
+      <div class="nav-links">
+        <a href="index.html">Início</a>
+        <a class="active" href="produtos.html">Produtos</a>
+        <a href="destaques.html">Destaques</a>
+        <a href="contato.html">Contato</a>
+        <div class="cart-icon" onclick="toggleCart(true)"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></div>
       </div>
     </nav>
   </header>
 
   <div class="breadcrumb">
     <div class="container">
-      <a href="index.html">Início</a> / <span>Produtos</span>
+      <a href="index.html">Início</a> › Produtos
     </div>
   </div>
 
-  <section class="produtos-page">
-    <div class="container">
-      <h1>Catálogo de Produtos</h1>
-      <div class="filters-section">
-        <div class="search-box">
-          <i class="fas fa-search"></i>
-          <input type="text" id="searchInput" placeholder="Buscar produtos...">
+  <main class="produtos-page container">
+    <h1>Produtos</h1>
+
+    <section class="filters-section">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input id="searchInput" type="text" placeholder="Busque por produto..." oninput="filterProducts()" />
+      </div>
+      <div class="category-filters">
+        <button class="filter-btn active" onclick="setFilter('all')">Todos</button>
+        <button class="filter-btn" onclick="setFilter('adesivos')">Adesivos</button>
+        <button class="filter-btn" onclick="setFilter('banners')">Banners</button>
+        <button class="filter-btn" onclick="setFilter('placas')">Placas</button>
+        <button class="filter-btn" onclick="setFilter('lonas')">Lonas</button>
+        <button class="filter-btn" onclick="setFilter('impressos')">Impressos</button>
+        <button class="filter-btn" onclick="setFilter('camisetas')">Camisetas</button>
+      </div>
+    </section>
+
+    <div id="produtosGrid" class="produtos-grid">
+      <!-- Adesivos -->
+      <div class="produto-card" data-cat="adesivos" id="adesivos">
+        <span class="produto-badge">Sob medida</span>
+        <img src="https://placehold.co/800x500?text=Adesivo+Vinil" alt="Adesivo Vinil" />
+        <h3>Adesivo Vinil</h3>
+        <p class="produto-desc">Impressão de alta qualidade em vinil, ideal para vitrines, rótulos e sinalização.</p>
+        <div class="produto-specs">
+          <span><i class="fas fa-ruler-combined"></i> Por m²</span>
+          <span><i class="fas fa-shield-alt"></i> Durável</span>
         </div>
-        <div class="category-filters">
-          <button class="filter-btn active" data-category="todos">Todos</button>
-          <button class="filter-btn" data-category="adesivos" id="adesivos">Adesivos</button>
-          <button class="filter-btn" data-category="banners" id="banners">Banners</button>
-          <button class="filter-btn" data-category="placas" id="placas">Placas</button>
-          <button class="filter-btn" data-category="lonas" id="lonas">Lonas</button>
-          <button class="filter-btn" data-category="impressos" id="impressos">Impressos</button>
-          <button class="filter-btn" data-category="camisetas" id="camisetas">Camisetas</button>
+        <div class="price-box">
+          <div class="old-price">a partir de R$ 140,00</div>
+          <div class="produto-price">R$ 120,00/m²</div>
         </div>
+        <button class="btn-primary" onclick="addToCart('Adesivo Vinil (1 m²)', 120)">Adicionar (1 m²)</button>
       </div>
 
-      <div class="produtos-grid" id="produtosGrid">
-        <!-- Adesivos -->
-        <div class="produto-card" data-category="adesivos">
-          <div class="produto-badge">Mais Vendido</div>
-          <img src="https://placehold.co/300x300/4CAF50/white?text=Adesivo+Vinil" alt="Adesivo Vinil">
-          <h3>Adesivo Vinil</h3>
-          <p class="produto-desc">Adesivo em vinil de alta qualidade, resistente à água</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-ruler"></i> Diversos tamanhos</span>
-            <span><i class="fas fa-clock"></i> 3-5 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 15,00</p>
-          <button class="btn-primary" onclick="addToCart('Adesivo Vinil', 15.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
+      <!-- Banners -->
+      <div class="produto-card" data-cat="banners" id="banners">
+        <span class="produto-badge">Popular</span>
+        <img src="https://placehold.co/800x500?text=Banner" alt="Banner" />
+        <h3>Banner</h3>
+        <p class="produto-desc">Banner com impressão nítida, ideal para eventos e promoções.</p>
+        <div class="produto-specs">
+          <span><i class="fas fa-ruler"></i> 60x90, 80x120...</span>
+          <span><i class="fas fa-scroll"></i> Bastão opcional</span>
         </div>
-
-        <div class="produto-card" data-category="adesivos">
-          <img src="https://placehold.co/300x300/2196F3/white?text=Adesivo+Transparente" alt="Adesivo Transparente">
-          <h3>Adesivo Transparente</h3>
-          <p class="produto-desc">Adesivo transparente para aplicações especiais</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-ruler"></i> Personalizável</span>
-            <span><i class="fas fa-clock"></i> 3-5 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 20,00</p>
-          <button class="btn-primary" onclick="addToCart('Adesivo Transparente', 20.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
+        <div class="price-box">
+          <div class="old-price">de R$ 130,00</div>
+          <div class="produto-price">R$ 110,00</div>
         </div>
-
-        <div class="produto-card" data-category="adesivos">
-          <img src="https://placehold.co/300x300/FF9800/white?text=Adesivo+Recortado" alt="Adesivo Recortado">
-          <h3>Adesivo Recortado</h3>
-          <p class="produto-desc">Adesivo recortado no formato da sua arte</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-cut"></i> Corte personalizado</span>
-            <span><i class="fas fa-clock"></i> 4-6 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 25,00</p>
-          <button class="btn-primary" onclick="addToCart('Adesivo Recortado', 25.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <!-- Banners -->
-        <div class="produto-card" data-category="banners">
-          <div class="produto-badge">Promoção</div>
-          <img src="https://placehold.co/300x300/E91E63/white?text=Banner+Lona" alt="Banner Lona">
-          <h3>Banner em Lona</h3>
-          <p class="produto-desc">Banner em lona 440g, ideal para uso externo</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-sun"></i> Resistente UV</span>
-            <span><i class="fas fa-clock"></i> 2-4 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 80,00/m²</p>
-          <button class="btn-primary" onclick="addToCart('Banner em Lona', 80.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <div class="produto-card" data-category="banners">
-          <img src="https://placehold.co/300x300/9C27B0/white?text=Banner+Vinilona" alt="Banner Vinilona">
-          <h3>Banner Vinilona</h3>
-          <p class="produto-desc">Banner em vinilona, ótimo custo-benefício</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-dollar-sign"></i> Econômico</span>
-            <span><i class="fas fa-clock"></i> 2-3 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 50,00/m²</p>
-          <button class="btn-primary" onclick="addToCart('Banner Vinilona', 50.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <div class="produto-card" data-category="banners">
-          <img src="https://placehold.co/300x300/00BCD4/white?text=Banner+X" alt="Banner X">
-          <h3>Banner X (Cavalete)</h3>
-          <p class="produto-desc">Banner com estrutura X, fácil montagem</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-arrows-alt"></i> 80x180cm</span>
-            <span><i class="fas fa-clock"></i> 3-5 dias</span>
-          </div>
-          <p class="produto-price">R$ 150,00</p>
-          <button class="btn-primary" onclick="addToCart('Banner X (Cavalete)', 150.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <!-- Placas -->
-        <div class="produto-card" data-category="placas">
-          <img src="https://placehold.co/300x300/795548/white?text=Placa+ACM" alt="Placa ACM">
-          <h3>Placa em ACM</h3>
-          <p class="produto-desc">Placa em alumínio composto, durabilidade superior</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-shield-alt"></i> Alta durabilidade</span>
-            <span><i class="fas fa-clock"></i> 5-7 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 200,00/m²</p>
-          <button class="btn-primary" onclick="addToCart('Placa em ACM', 200.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <div class="produto-card" data-category="placas">
-          <img src="https://placehold.co/300x300/607D8B/white?text=Placa+PVC" alt="Placa PVC">
-          <h3>Placa em PVC</h3>
-          <p class="produto-desc">Placa em PVC expandido, leve e resistente</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-feather"></i> Leve</span>
-            <span><i class="fas fa-clock"></i> 4-6 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 120,00/m²</p>
-          <button class="btn-primary" onclick="addToCart('Placa em PVC', 120.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <div class="produto-card" data-category="placas">
-          <img src="https://placehold.co/300x300/455A64/white?text=Placa+MDF" alt="Placa MDF">
-          <h3>Placa em MDF</h3>
-          <p class="produto-desc">Placa em MDF, ideal para ambientes internos</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-home"></i> Uso interno</span>
-            <span><i class="fas fa-clock"></i> 4-6 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 90,00/m²</p>
-          <button class="btn-primary" onclick="addToCart('Placa em MDF', 90.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <!-- Lonas -->
-        <div class="produto-card" data-category="lonas">
-          <img src="https://placehold.co/300x300/F44336/white?text=Lona+440g" alt="Lona 440g">
-          <h3>Lona 440g</h3>
-          <p class="produto-desc">Lona premium 440g, máxima resistência</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-star"></i> Premium</span>
-            <span><i class="fas fa-clock"></i> 3-5 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 85,00/m²</p>
-          <button class="btn-primary" onclick="addToCart('Lona 440g', 85.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <div class="produto-card" data-category="lonas">
-          <img src="https://placehold.co/300x300/FF5722/white?text=Lona+340g" alt="Lona 340g">
-          <h3>Lona 340g</h3>
-          <p class="produto-desc">Lona 340g, ótimo custo-benefício</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-check"></i> Qualidade</span>
-            <span><i class="fas fa-clock"></i> 3-5 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 65,00/m²</p>
-          <button class="btn-primary" onclick="addToCart('Lona 340g', 65.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <!-- Impressos -->
-        <div class="produto-card" data-category="impressos">
-          <img src="https://placehold.co/300x300/3F51B5/white?text=Cartao+Visita" alt="Cartão de Visita">
-          <h3>Cartão de Visita</h3>
-          <p class="produto-desc">Cartão de visita em papel couché 300g</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-id-card"></i> 9x5cm</span>
-            <span><i class="fas fa-clock"></i> 2-4 dias</span>
-          </div>
-          <p class="produto-price">R$ 80,00 (100un)</p>
-          <button class="btn-primary" onclick="addToCart('Cartão de Visita (100un)', 80.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <div class="produto-card" data-category="impressos">
-          <img src="https://placehold.co/300x300/673AB7/white?text=Flyer" alt="Flyer">
-          <h3>Flyer / Panfleto</h3>
-          <p class="produto-desc">Flyer A5 em papel couché 150g</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-file"></i> A5</span>
-            <span><i class="fas fa-clock"></i> 2-4 dias</span>
-          </div>
-          <p class="produto-price">R$ 150,00 (1000un)</p>
-          <button class="btn-primary" onclick="addToCart('Flyer A5 (1000un)', 150.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <div class="produto-card" data-category="impressos">
-          <img src="https://placehold.co/300x300/009688/white?text=Folder" alt="Folder">
-          <h3>Folder</h3>
-          <p class="produto-desc">Folder A4 dobrado em 3 partes</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-folder"></i> A4 dobrado</span>
-            <span><i class="fas fa-clock"></i> 3-5 dias</span>
-          </div>
-          <p class="produto-price">R$ 250,00 (500un)</p>
-          <button class="btn-primary" onclick="addToCart('Folder A4 (500un)', 250.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <!-- Camisetas -->
-        <div class="produto-card" data-category="camisetas">
-          <div class="produto-badge">Novidade</div>
-          <img src="https://placehold.co/300x300/8BC34A/white?text=Camiseta+Silk" alt="Camiseta Silk">
-          <h3>Camiseta Silk Screen</h3>
-          <p class="produto-desc">Camiseta 100% algodão com silk screen</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-tshirt"></i> 100% algodão</span>
-            <span><i class="fas fa-clock"></i> 5-7 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 35,00</p>
-          <button class="btn-primary" onclick="addToCart('Camiseta Silk Screen', 35.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
-
-        <div class="produto-card" data-category="camisetas">
-          <img src="https://placehold.co/300x300/CDDC39/white?text=Camiseta+Sublimacao" alt="Camiseta Sublimação">
-          <h3>Camiseta Sublimação</h3>
-          <p class="produto-desc">Camiseta em poliéster com sublimação total</p>
-          <div class="produto-specs">
-            <span><i class="fas fa-palette"></i> Cores vibrantes</span>
-            <span><i class="fas fa-clock"></i> 5-7 dias</span>
-          </div>
-          <p class="produto-price">A partir de R$ 45,00</p>
-          <button class="btn-primary" onclick="addToCart('Camiseta Sublimação', 45.00)">
-            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
-          </button>
-        </div>
+        <button class="btn-primary" onclick="addToCart('Banner 80x120', 110)">Adicionar</button>
       </div>
 
-      <div id="noResults" style="display:none; text-align:center; padding:40px;">
-        <i class="fas fa-search" style="font-size:48px; color:#ccc; margin-bottom:20px;"></i>
-        <p style="font-size:18px; color:#666;">Nenhum produto encontrado</p>
+      <!-- Placas PVC/Acrílico genéricas -->
+      <div class="produto-card" data-cat="placas" id="placas">
+        <img src="https://placehold.co/800x500?text=Placas" alt="Placas" />
+        <h3>Placas</h3>
+        <p class="produto-desc">Placas para sinalização interna/externa com excelente acabamento.</p>
+        <div class="produto-specs">
+          <span><i class="fas fa-square"></i> Sob medida</span>
+          <span><i class="fas fa-sun"></i> Resistentes</span>
+        </div>
+        <div class="price-box">
+          <div class="produto-price">Sob consulta</div>
+        </div>
+        <a class="btn-secondary" href="https://wa.me/5511968649673?text=Olá!%20Gostaria%20de%20um%20orçamento%20de%20placas." target="_blank" rel="noopener">Solicitar orçamento</a>
+      </div>
+
+      <!-- Lonas -->
+      <div class="produto-card" data-cat="lonas" id="lonas">
+        <img src="https://placehold.co/800x500?text=Lona" alt="Lona Front" />
+        <h3>Lona Front</h3>
+        <p class="produto-desc">Lonas com cores vibrantes para fachadas e promoções.</p>
+        <div class="produto-specs">
+          <span><i class="fas fa-ruler-combined"></i> Por m²</span>
+          <span><i class="fas fa-link"></i> Ilhós opcional</span>
+        </div>
+        <div class="price-box">
+          <div class="produto-price">R$ 90,00/m²</div>
+        </div>
+        <button class="btn-primary" onclick="addToCart('Lona Front (1 m²)', 90)">Adicionar (1 m²)</button>
+      </div>
+
+      <!-- Impressos -->
+      <div class="produto-card" data-cat="impressos" id="impressos">
+        <img src="https://placehold.co/800x500?text=Impressos" alt="Impressos" />
+        <h3>Impressos</h3>
+        <p class="produto-desc">Cartões de visita, panfletos, folders e mais.</p>
+        <div class="produto-specs">
+          <span><i class="fas fa-copy"></i> Diversos papéis</span>
+          <span><i class="fas fa-palette"></i> Cores vivas</span>
+        </div>
+        <div class="price-box">
+          <div class="produto-price">Sob consulta</div>
+        </div>
+        <a class="btn-secondary" href="https://wa.me/5511968649673?text=Olá!%20Quero%20impressos%20personalizados." target="_blank" rel="noopener">Solicitar orçamento</a>
+      </div>
+
+      <!-- Camisetas -->
+      <div class="produto-card" data-cat="camisetas" id="camisetas">
+        <img src="https://placehold.co/800x500?text=Camisetas" alt="Camisetas Personalizadas" />
+        <h3>Camisetas Personalizadas</h3>
+        <p class="produto-desc">Estampa sob demanda com excelente durabilidade.</p>
+        <div class="produto-specs">
+          <span><i class="fas fa-tshirt"></i> Unitário</span>
+          <span><i class="fas fa-ruler"></i> Vários tamanhos</span>
+        </div>
+        <div class="price-box">
+          <div class="produto-price">R$ 39,00</div>
+        </div>
+        <button class="btn-primary" onclick="addToCart('Camiseta Personalizada', 39)">Adicionar</button>
       </div>
     </div>
-  </section>
+  </main>
 
-  <section class="cta-section">
-    <div class="container">
-      <h2>Não encontrou o que procura?</h2>
-      <p>Entre em contato conosco para orçamentos personalizados</p>
-      <a href="contato.html" class="btn-secondary">Fale Conosco</a>
-    </div>
-  </section>
-
-  <div id="cartSidebar" class="cart-sidebar">
+  <!-- Carrinho -->
+  <aside id="cartSidebar" class="cart-sidebar">
     <div class="cart-header">
       <h3>Seu Carrinho</h3>
-      <button onclick="toggleCart()" class="close-cart">&times;</button>
+      <button class="close-cart" onclick="toggleCart(false)">&times;</button>
     </div>
     <div id="cartItems" class="cart-items"></div>
     <div class="cart-footer">
-      <div class="cart-total">
-        <span>Total:</span>
-        <span id="cartTotal">R$ 0,00</span>
-      </div>
-      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar Orçamento PDF</button>
-      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp</button>
+      <div class="cart-total"><span>Total</span><span id="cartTotal">R$ 0,00</span></div>
+      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar PDF</button>
+      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar no WhatsApp</button>
     </div>
-  </div>
+  </aside>
 
   <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Vidal Design Solutions</h4>
-          <p>Soluções gráficas profissionais com qualidade e agilidade.</p>
-          <div class="social-links">
-            <a href="https://instagram.com/vidaldesignsolutions" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5511968649673" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Links Rápidos</h4>
-          <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="produtos.html">Produtos</a></li>
-            <li><a href="destaques.html">Destaques</a></li>
-            <li><a href="contato.html">Contato</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contato</h4>
-          <p><i class="fas fa-phone"></i> +55 (11) 96864-9673</p>
-          <p><i class="fas fa-envelope"></i> vidaldesignsolutions@gmail.com</p>
-          <p><i class="fas fa-map-marker-alt"></i> Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h4>Vidal Design Solutions</h4>
+        <p>WhatsApp: +55 (11) 96864-9673</p>
+        <p>E-mail: vidaldesignsolutions@gmail.com</p>
+        <p>Endereço: Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
+        <div class="social-links">
+          <a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener"><i class="fas fa-star"></i></a>
+          <a href="https://wa.me/5511968649673" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Vidal Design Solutions. Todos os direitos reservados.</p>
+      <div class="footer-section">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="destaques.html">Destaques</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener">Avaliações no Google</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Atendimento</h4>
+        <p>Seg a Sex: 09h às 18h</p>
+        <p>Orçamentos por WhatsApp 24h</p>
+        <a class="btn-contact" href="https://wa.me/5511968649673?text=Olá!%20Preciso%20de%20um%20orçamento." target="_blank" rel="noopener">Pedir Orçamento</a>
       </div>
     </div>
+    <div class="footer-bottom">© <span id="year"></span> Vidal Design Solutions. Todos os direitos reservados.</div>
   </footer>
 
-  <script src="cart.js"></script>
   <script>
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const produtoCards = document.querySelectorAll('.produto-card');
-    const searchInput = document.getElementById('searchInput');
-    const noResults = document.getElementById('noResults');
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        filterProducts(btn.dataset.category, searchInput.value);
+    let currentFilter = 'all';
+    function setFilter(cat) {
+      currentFilter = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      [...document.querySelectorAll('.filter-btn')].find(b => b.textContent.toLowerCase().includes(cat === 'all' ? 'todos' : cat))?.classList.add('active');
+      filterProducts();
+    }
+    function filterProducts() {
+      const term = (document.getElementById('searchInput').value || '').toLowerCase();
+      document.querySelectorAll('#produtosGrid .produto-card').forEach(card => {
+        const cat = card.getAttribute('data-cat');
+        const text = card.innerText.toLowerCase();
+        const matchCat = currentFilter === 'all' || cat === currentFilter;
+        const matchTerm = !term || text.includes(term);
+        card.style.display = matchCat && matchTerm ? '' : 'none';
       });
-    });
-
-    searchInput.addEventListener('input', e => {
-      const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
-      filterProducts(activeCategory, e.target.value);
-    });
-
-    function filterProducts(category, searchTerm){
-      let visible = 0;
-      produtoCards.forEach(card=>{
-        const cardCategory = card.dataset.category;
-        const text = (card.querySelector('h3').textContent + ' ' + card.querySelector('.produto-desc').textContent).toLowerCase();
-        const okCat = (category==='todos' || cardCategory===category);
-        const okSearch = !searchTerm || text.includes(searchTerm.toLowerCase());
-        card.style.display = (okCat && okSearch) ? 'block' : 'none';
-        if (okCat && okSearch) visible++;
-      });
-      noResults.style.display = visible===0 ? 'block':'none';
     }
   </script>
 </body>
