@@ -6,36 +6,23 @@ let cart = JSON.parse(localStorage.getItem('vidalCart')) || [];
 function updateCartCount() {
   const count = cart.reduce((sum, item) => sum + item.quantity, 0);
   const cartCountEl = document.querySelector('.cart-count');
-  if (cartCountEl) {
-    cartCountEl.textContent = count;
-  }
+  if (cartCountEl) cartCountEl.textContent = count;
 }
 
 // Adicionar item ao carrinho
 function addToCart(name, price, quantity = 1) {
   const existingItem = cart.find(item => item.name === name);
-  
-  if (existingItem) {
-    existingItem.quantity += quantity;
-  } else {
-    cart.push({
-      name: name,
-      price: parseFloat(price),
-      quantity: quantity
-    });
-  }
-  
+  if (existingItem) existingItem.quantity += quantity;
+  else cart.push({ name, price: parseFloat(price), quantity });
+
   localStorage.setItem('vidalCart', JSON.stringify(cart));
   updateCartCount();
   renderCart();
-  
-  // Feedback visual
+
   const cartIcon = document.querySelector('.cart-icon');
   if (cartIcon) {
     cartIcon.style.transform = 'scale(1.2)';
-    setTimeout(() => {
-      cartIcon.style.transform = 'scale(1)';
-    }, 300);
+    setTimeout(() => { cartIcon.style.transform = 'scale(1)'; }, 300);
   }
 }
 
@@ -51,22 +38,19 @@ function removeFromCart(index) {
 function renderCart() {
   const cartItemsEl = document.getElementById('cartItems');
   const cartTotalEl = document.getElementById('cartTotal');
-  
   if (!cartItemsEl || !cartTotalEl) return;
-  
+
   if (cart.length === 0) {
     cartItemsEl.innerHTML = '<div class="cart-empty"><i class="fas fa-shopping-cart" style="font-size:3rem;margin-bottom:1rem;opacity:0.3;"></i><p>Seu carrinho está vazio</p></div>';
     cartTotalEl.textContent = 'R$ 0,00';
     return;
   }
-  
+
   let total = 0;
   let html = '';
-  
   cart.forEach((item, index) => {
     const itemTotal = item.price * item.quantity;
     total += itemTotal;
-    
     html += `
       <div class="cart-item">
         <div class="cart-item-info">
@@ -74,47 +58,34 @@ function renderCart() {
           <p>Qtd: ${item.quantity} × ${formatBRL(item.price)}</p>
           <p class="cart-item-price">${formatBRL(itemTotal)}</p>
         </div>
-        <button class="cart-item-remove" onclick="removeFromCart(${index})">
-          <i class="fas fa-trash"></i>
-        </button>
+        <button class="cart-item-remove" onclick="removeFromCart(${index})"><i class="fas fa-trash"></i></button>
       </div>
     `;
   });
-  
+
   cartItemsEl.innerHTML = html;
   cartTotalEl.textContent = formatBRL(total);
 }
 
 // Formatar moeda BRL
 function formatBRL(value) {
-  return value.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  });
+  return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
 
 // Toggle carrinho lateral
 function toggleCart(forceOpen = false) {
   const sidebar = document.getElementById('cartSidebar');
   if (!sidebar) return;
-  
-  if (forceOpen) {
-    sidebar.classList.add('open');
-  } else {
-    sidebar.classList.toggle('open');
-  }
+  if (forceOpen) sidebar.classList.add('open');
+  else sidebar.classList.toggle('open');
 }
 
 // Gerar PDF (via impressão)
 function generatePDF() {
-  if (cart.length === 0) {
-    alert('Seu carrinho está vazio!');
-    return;
-  }
-  
+  if (cart.length === 0) { alert('Seu carrinho está vazio!'); return; }
+
   let total = 0;
   let itemsHTML = '';
-  
   cart.forEach(item => {
     const itemTotal = item.price * item.quantity;
     total += itemTotal;
@@ -127,7 +98,7 @@ function generatePDF() {
       </tr>
     `;
   });
-  
+
   const pdfWindow = window.open('', '_blank');
   pdfWindow.document.write(`
     <!DOCTYPE html>
@@ -149,7 +120,7 @@ function generatePDF() {
       <h1>Vidal Design Solutions</h1>
       <h2>Orçamento</h2>
       <p><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')}</p>
-      
+
       <table>
         <thead>
           <tr>
@@ -163,22 +134,18 @@ function generatePDF() {
           ${itemsHTML}
         </tbody>
       </table>
-      
+
       <div class="total">TOTAL: ${formatBRL(total)}</div>
-      
+
       <div class="footer">
         <h3>Contato</h3>
         <p><strong>WhatsApp:</strong> +55 (11) 96864-9673</p>
         <p><strong>E-mail:</strong> vidaldesignsolutions@gmail.com</p>
         <p><strong>Endereço:</strong> Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
-        <p><strong>Instagram:</strong> @vidaldesignsolutions</p>
+        <p><strong>Google:</strong> https://share.google/Tx0IXgmBnEP4UI1g0</p>
       </div>
-      
-      <script>
-        window.onload = function() {
-          window.print();
-        }
-      </script>
+
+      <script>window.onload = function() { window.print(); }</script>
     </body>
     </html>
   `);
@@ -187,40 +154,34 @@ function generatePDF() {
 
 // Enviar pelo WhatsApp
 function sendWhatsApp() {
-  if (cart.length === 0) {
-    alert('Seu carrinho está vazio!');
-    return;
-  }
-  
+  if (cart.length === 0) { alert('Seu carrinho está vazio!'); return; }
+
   let total = 0;
   let message = '*Olá! Gostaria de fazer um orçamento:*%0A%0A';
-  
   cart.forEach(item => {
     const itemTotal = item.price * item.quantity;
     total += itemTotal;
     message += `▪️ *${item.name}*%0A`;
     message += `   Qtd: ${item.quantity} × ${formatBRL(item.price)} = ${formatBRL(itemTotal)}%0A%0A`;
   });
-  
   message += `*TOTAL: ${formatBRL(total)}*%0A%0A`;
   message += `Aguardo retorno! 😊`;
-  
+
   const whatsappURL = `https://wa.me/5511968649673?text=${message}`;
   window.open(whatsappURL, '_blank');
 }
 
-// Inicializar ao carregar a página
+// Inicialização
 document.addEventListener('DOMContentLoaded', function() {
   updateCartCount();
   renderCart();
-  
+
   // Fechar carrinho ao clicar fora
   document.addEventListener('click', function(e) {
     const sidebar = document.getElementById('cartSidebar');
     const cartIcon = document.querySelector('.cart-icon');
-    
     if (sidebar && sidebar.classList.contains('open')) {
-      if (!sidebar.contains(e.target) && !cartIcon.contains(e.target)) {
+      if (!sidebar.contains(e.target) && !cartIcon?.contains(e.target)) {
         sidebar.classList.remove('open');
       }
     }
