@@ -2,68 +2,131 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="Vidal Design Solutions - Adesivos, Banners, Placas, Impressos, Lonas e Camisetas. Qualidade profissional, orçamento rápido e atendimento via WhatsApp."/>
-  <title>Vidal Design Solutions - Soluções Gráficas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidal Design Solutions – Soluções Gráficas</title>
+  <meta name="description" content="Adesivos, Banners, Placas, Lonas, Impressos e Camisetas. Orçamento rápido, atendimento personalizado e entrega em todo Brasil." />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preconnect" href="https://kit.fontawesome.com" crossorigin>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js" defer></script>
+  <script src="cart.js" defer></script>
+
+  <!-- Schema.org LocalBusiness (alinhado com Google Empresas) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Vidal Design Solutions",
+    "image": "https://gilneyvidal.github.io/sitevidal/logo.png",
+    "url": "https://gilneyvidal.github.io/sitevidal/",
+    "telephone": "+55 11 96864-9673",
+    "email": "vidaldesignsolutions@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Antonio Cordeiro, 57",
+      "postalCode": "08715-470",
+      "addressLocality": "Mogi das Cruzes",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://share.google/Tx0IXgmBnEP4UI1g0"
+    ],
+    "areaServed": "Brasil",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Header -->
   <header>
     <nav class="container">
-      <div class="logo">
+      <a href="index.html" class="logo" aria-label="Vidal Design Solutions">
         <img src="logo.png" alt="Vidal Design Solutions" />
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Início</a></li>
-        <li><a href="produtos.html">Produtos</a></li>
-        <li><a href="destaques.html">Destaques</a></li>
-        <li><a href="contato.html">Contato</a></li>
-      </ul>
-      <div class="cart-icon" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-count">0</span>
+      </a>
+      <div class="nav-links">
+        <a class="active" href="index.html">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="destaques.html">Destaques</a>
+        <a href="contato.html">Contato</a>
+        <div class="cart-icon" onclick="toggleCart(true)" role="button" aria-label="Abrir carrinho">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </div>
       </div>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero com carrossel -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-text">
         <h1>Soluções Gráficas com Qualidade e Agilidade</h1>
         <p>Adesivos, Banners, Placas, Lonas, Impressos e Camisetas. Orçamento rápido e atendimento personalizado.</p>
+
         <div class="hero-actions">
-          <a href="produtos.html" class="btn-primary"><i class="fas fa-tags"></i> Ver Produtos</a>
-          <a href="https://wa.me/5511968649673?text=Olá! Tenho interesse em um orçamento." class="btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Falar no WhatsApp</a>
+          <a class="btn-primary" href="produtos.html"><i class="fas fa-tags"></i> Ver Produtos</a>
+          <a class="btn-whatsapp" href="https://wa.me/5511968649673?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento." target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+          </a>
+          <a class="btn-secondary" href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener">
+            <i class="fas fa-star"></i> Avaliações no Google
+          </a>
         </div>
+
         <div class="hero-badges">
           <span><i class="fas fa-truck"></i> Entrega em todo Brasil</span>
           <span><i class="fas fa-bolt"></i> Produção Rápida</span>
           <span><i class="fas fa-shield-alt"></i> Qualidade Garantida</span>
         </div>
       </div>
-      <div class="hero-image">
-        <img src="https://placehold.co/560x360?text=Vidal+Design+Solutions" alt="Impressos e comunicação visual" />
+
+      <div class="hero-carousel">
+        <div class="carousel">
+          <div class="slides">
+            <div class="slide active">
+              <img src="slide1.jpg" alt="Exemplo de impressão e recorte de adesivos" />
+            </div>
+            <div class="slide">
+              <img src="slide2.jpg" alt="Banners e lonas de alta qualidade" />
+            </div>
+            <div class="slide">
+              <img src="slide3.jpg" alt="Camisetas personalizadas e impressos" />
+            </div>
+          </div>
+          <button class="carousel-btn prev" aria-label="Slide anterior" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next" aria-label="Próximo slide" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Calculadora/Orçamento rápido -->
+  <!-- Orçamento Rápido -->
   <section class="quick-quote">
     <div class="container">
       <h2>Orçamento Rápido</h2>
       <div class="quote-grid">
         <div class="quote-row">
-          <label for="produtoTipo">Tipo</label>
-          <select id="produtoTipo">
-            <option value="adesivo">Adesivo (vinil)</option>
-            <option value="banner">Banner (lona 440g)</option>
-            <option value="placa">Placa (PVC)</option>
-            <option value="lona">Lona 440g</option>
-            <option value="cartao">Cartão de Visita (100un)</option>
-            <option value="camiseta">Camiseta (silk)</option>
+          <label for="tipoProduto">Tipo de Produto</label>
+          <select id="tipoProduto">
+            <option value="adesivo">Adesivo Vinil</option>
+            <option value="lona">Lona Front</option>
+            <option value="banner">Banner</option>
+            <option value="camiseta">Camiseta Personalizada</option>
           </select>
         </div>
         <div class="quote-row">
@@ -75,14 +138,21 @@
           <input type="number" id="altura" min="1" value="100" />
         </div>
         <div class="quote-row">
-          <label for="quantidade">Quantidade</label>
-          <input type="number" id="quantidade" min="1" value="1" />
+          <label for="acabamento">Acabamento</label>
+          <select id="acabamento">
+            <option value="padrão">Padrão</option>
+            <option value="ilhos">Ilhós</option>
+            <option value="bastão">Bastão</option>
+            <option value="recorte">Recorte Especial</option>
+          </select>
         </div>
+
         <div class="quote-actions">
-          <button class="btn-secondary" onclick="calcQuote()"><i class="fas fa-calculator"></i> Calcular</button>
-          <button class="btn-primary" onclick="addQuoteToCart()"><i class="fas fa-cart-plus"></i> Adicionar ao Carrinho</button>
+          <button class="btn-primary" onclick="calcularOrcamento()">Calcular</button>
+          <button class="btn-secondary" onclick="addOrcamentoToCart()">Adicionar ao Carrinho</button>
         </div>
-        <div id="quoteResult" class="quote-result">Preencha os campos e clique em Calcular.</div>
+
+        <div class="quote-result" id="quoteResult">Informe as medidas para calcular. Área mínima de cobrança: 0,50 m².</div>
       </div>
     </div>
   </section>
@@ -93,10 +163,10 @@
       <h2>Categorias</h2>
       <div class="cat-grid">
         <a class="cat-card" href="produtos.html#adesivos"><i class="fas fa-sticky-note"></i> Adesivos</a>
-        <a class="cat-card" href="produtos.html#banners"><i class="fas fa-image"></i> Banners</a>
+        <a class="cat-card" href="produtos.html#banners"><i class="fas fa-scroll"></i> Banners</a>
         <a class="cat-card" href="produtos.html#placas"><i class="fas fa-square"></i> Placas</a>
-        <a class="cat-card" href="produtos.html#lonas"><i class="fas fa-scroll"></i> Lonas</a>
-        <a class="cat-card" href="produtos.html#impressos"><i class="fas fa-copy"></i> Impressos</a>
+        <a class="cat-card" href="produtos.html#lonas"><i class="fas fa-layer-group"></i> Lonas</a>
+        <a class="cat-card" href="produtos.html#impressos"><i class="fas fa-print"></i> Impressos</a>
         <a class="cat-card" href="produtos.html#camisetas"><i class="fas fa-tshirt"></i> Camisetas</a>
       </div>
     </div>
@@ -108,16 +178,16 @@
       <h2>O que dizem nossos clientes</h2>
       <div class="testi-grid">
         <div class="testi-card">
-          <p>Serviço impecável! Meus banners ficaram excelentes e chegaram no prazo.</p>
-          <span>— Juliana, São Paulo</span>
+          “Atendimento excelente e entrega super rápida. Recomendo!”
+          <span>Mariana S.</span>
         </div>
         <div class="testi-card">
-          <p>Adesivos de alta qualidade e atendimento super rápido pelo WhatsApp. Recomendo!</p>
-          <span>— Diego, Mogi</span>
+          “Qualidade de impressão impecável. Voltarei a comprar.”
+          <span>Rafael T.</span>
         </div>
         <div class="testi-card">
-          <p>Preço justo e qualidade top. Fechei um kit completo para minha loja.</p>
-          <span>— Rafael, Suzano</span>
+          “Ótimo custo-benefício e suporte pelo WhatsApp.”
+          <span>Juliana M.</span>
         </div>
       </div>
     </div>
@@ -126,120 +196,164 @@
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
-      <h2>Pronto para fazer seu pedido?</h2>
-      <p>Fale com a gente pelo WhatsApp e receba um orçamento em minutos.</p>
-      <a href="https://wa.me/5511968649673?text=Olá! Gostaria de um orçamento." class="btn-whatsapp" target="_blank">
+      <h2>Precisa de um orçamento agora?</h2>
+      <p>Fale com nossa equipe pelo WhatsApp ou veja nossos produtos em destaque.</p>
+      <a class="btn-whatsapp" href="https://wa.me/5511968649673?text=Olá!%20Gostaria%20de%20um%20orçamento." target="_blank" rel="noopener">
         <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
       </a>
+      <a class="btn-secondary" href="destaques.html" style="margin-left:10px;">Ver Destaques</a>
     </div>
   </section>
 
   <!-- Carrinho lateral -->
-  <div id="cartSidebar" class="cart-sidebar">
+  <aside id="cartSidebar" class="cart-sidebar" aria-hidden="true">
     <div class="cart-header">
       <h3>Seu Carrinho</h3>
-      <button onclick="toggleCart()" class="close-cart">&times;</button>
+      <button class="close-cart" onclick="toggleCart(false)" aria-label="Fechar carrinho">&times;</button>
     </div>
     <div id="cartItems" class="cart-items"></div>
     <div class="cart-footer">
       <div class="cart-total">
-        <span>Total:</span>
+        <span>Total</span>
         <span id="cartTotal">R$ 0,00</span>
       </div>
-      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar Orçamento PDF</button>
-      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp</button>
+      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar PDF</button>
+      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar no WhatsApp</button>
     </div>
-  </div>
+  </aside>
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>Vidal Design Solutions</h4>
-          <p>Soluções gráficas profissionais com qualidade e agilidade.</p>
-          <div class="social-links">
-            <a href="https://instagram.com/vidaldesignsolutions" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5511968649673" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Links Rápidos</h4>
-          <ul>
-            <li><a href="index.html">Início</a></li>
-            <li><a href="produtos.html">Produtos</a></li>
-            <li><a href="destaques.html">Destaques</a></li>
-            <li><a href="contato.html">Contato</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contato</h4>
-          <p><i class="fas fa-phone"></i> +55 (11) 96864-9673</p>
-          <p><i class="fas fa-envelope"></i> vidaldesignsolutions@gmail.com</p>
-          <p><i class="fas fa-map-marker-alt"></i> Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
+    <div class="container footer-content">
+      <div class="footer-section">
+        <h4>Vidal Design Solutions</h4>
+        <p>WhatsApp: +55 (11) 96864-9673</p>
+        <p>E-mail: vidaldesignsolutions@gmail.com</p>
+        <p>Endereço: Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
+        <div class="social-links">
+          <a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener" title="Avaliações no Google"><i class="fas fa-star"></i></a>
+          <a href="https://wa.me/5511968649673" target="_blank" rel="noopener" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Vidal Design Solutions. Todos os direitos reservados.</p>
+      <div class="footer-section">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="destaques.html">Destaques</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><a href="https://share.google/Tx0IXgmBnEP4UI1g0" target="_blank" rel="noopener">Avaliações no Google</a></li>
+        </ul>
       </div>
+      <div class="footer-section">
+        <h4>Atendimento</h4>
+        <p>Seg a Sex: 09h às 18h</p>
+        <p>Orçamentos por WhatsApp 24h</p>
+        <a class="btn-contact" href="https://wa.me/5511968649673?text=Olá!%20Preciso%20de%20um%20orçamento." target="_blank" rel="noopener">Pedir Orçamento</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © <span id="year"></span> Vidal Design Solutions. Todos os direitos reservados.
     </div>
   </footer>
 
-  <script src="cart.js"></script>
   <script>
-    function cm2m2(w, h){ return (w/100)*(h/100); }
-    function formatBRL(n){ return n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'}); }
-    function getBasePrice(tipo){
-      switch(tipo){
-        case 'adesivo': return 120;   // R$/m²
-        case 'banner':  return 80;    // R$/m²
-        case 'placa':   return 120;   // R$/m² (PVC)
-        case 'lona':    return 85;    // R$/m²
-        case 'cartao':  return 80;    // pacote
-        case 'camiseta':return 35;    // unidade
-        default: return 100;
-      }
+    // Atualiza ano
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Carrossel simples
+    let currentSlide = 0;
+    function showSlide(index) {
+      const slides = document.querySelectorAll('.carousel .slide');
+      const dots = document.querySelectorAll('.carousel-dots button');
+      if (!slides.length) return;
+
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      currentSlide = index;
     }
-    function calcQuote(){
-      const tipo = document.getElementById('produtoTipo').value;
-      const largura = parseFloat(document.getElementById('largura').value || 0);
-      const altura = parseFloat(document.getElementById('altura').value || 0);
-      const qtd = parseInt(document.getElementById('quantidade').value || 1, 10);
-      const result = document.getElementById('quoteResult');
+    function nextSlide() {
+      const slides = document.querySelectorAll('.carousel .slide');
+      if (!slides.length) return;
+      showSlide((currentSlide + 1) % slides.length);
+    }
+    function prevSlide() {
+      const slides = document.querySelectorAll('.carousel .slide');
+      if (!slides.length) return;
+      showSlide((currentSlide - 1 + slides.length) % slides.length);
+    }
+    function buildDots() {
+      const slides = document.querySelectorAll('.carousel .slide');
+      const dotsEl = document.getElementById('carouselDots');
+      if (!slides.length || !dotsEl) return;
+      dotsEl.innerHTML = '';
+      slides.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.setAttribute('aria-label', 'Ir para slide ' + (i + 1));
+        b.onclick = () => showSlide(i);
+        dotsEl.appendChild(b);
+      });
+      showSlide(0);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      buildDots();
+      setInterval(nextSlide, 5000); // troca automática a cada 5s
+    });
+
+    // Orçador rápido
+    const PRECO_M2 = {
+      adesivo: 120,
+      lona: 90,
+      banner: 110,
+      camiseta: 39 // preço por unidade (ignora m²)
+    };
+    const EXTRA_ACAB = {
+      padrão: 0,
+      ilhos: 10,     // por m²
+      bastão: 20,    // por m²
+      recorte: 15    // por m²
+    };
+    const AREA_MINIMA = 0.5; // m²
+
+    function calcularOrcamento(returnOnly = false) {
+      const tipo = document.getElementById('tipoProduto').value;
+      const w = parseFloat(document.getElementById('largura').value || '0') / 100; // metros
+      const h = parseFloat(document.getElementById('altura').value || '0') / 100;  // metros
+      const acabamento = document.getElementById('acabamento').value;
+      const el = document.getElementById('quoteResult');
+
       let total = 0;
-      if (tipo === 'cartao'){
-        total = getBasePrice(tipo) * qtd;
-        result.textContent = `Total para ${qtd} pacote(s) de Cartão de Visita: ${formatBRL(total)}`;
-        return total;
+      let area = w * h;
+
+      if (tipo === 'camiseta') {
+        total = PRECO_M2.camiseta; // unitário simples
+        if (el) el.textContent = `Camiseta personalizada a partir de ${formatBRL(total)} (unitário).`;
+        return returnOnly ? { total, area: 0 } : undefined;
       }
-      if (tipo === 'camiseta'){
-        total = getBasePrice(tipo) * qtd;
-        result.textContent = `Total para ${qtd} Camiseta(s): ${formatBRL(total)}`;
-        return total;
-      }
-      const area = Math.max(cm2m2(largura, altura), 0.05); // mínimo técnico
-      total = getBasePrice(tipo) * area * qtd;
-      result.textContent = `Total para ${qtd} un com ${largura}x${altura}cm: ${formatBRL(total)}`;
-      return total;
+
+      if (area < AREA_MINIMA) area = AREA_MINIMA;
+      const base = PRECO_M2[tipo] + EXTRA_ACAB[acabamento];
+      total = base * area;
+      total = Math.round(total * 100) / 100;
+
+      if (el) el.textContent = `Área cobrada: ${area.toFixed(2)} m² | Total: ${formatBRL(total)}`;
+      return returnOnly ? { total, area } : undefined;
     }
-    function addQuoteToCart(){
-      const tipo = document.getElementById('produtoTipo').value;
-      const largura = parseFloat(document.getElementById('largura').value || 0);
-      const altura = parseFloat(document.getElementById('altura').value || 0);
-      const qtd = parseInt(document.getElementById('quantidade').value || 1, 10);
-      const total = calcQuote();
-      const nameMap = {
-        adesivo:'Adesivo (vinil)',
-        banner:'Banner (lona 440g)',
-        placa:'Placa (PVC)',
-        lona:'Lona 440g',
-        cartao:'Cartão de Visita (100un)',
-        camiseta:'Camiseta (silk)'
-      };
-      const labelDim = (tipo==='cartao' || tipo==='camiseta') ? '' : ` - ${largura}x${altura}cm`;
-      const itemName = `${nameMap[tipo]}${labelDim}`;
-      const unitPrice = total / qtd;
-      addToCart(itemName, unitPrice, qtd);
+
+    function addOrcamentoToCart() {
+      const tipo = document.getElementById('tipoProduto').value;
+      const wcm = parseFloat(document.getElementById('largura').value || '0');
+      const hcm = parseFloat(document.getElementById('altura').value || '0');
+      const acabamento = document.getElementById('acabamento').value;
+      const calc = calcularOrcamento(true);
+      if (!calc || !calc.total) return;
+
+      const name =
+        tipo === 'camiseta'
+          ? `Camiseta Personalizada (${acabamento})`
+          : `${tipo.toUpperCase()} ${wcm}x${hcm}cm (${acabamento})`;
+      addToCart(name, calc.total, 1);
       toggleCart(true);
     }
   </script>
