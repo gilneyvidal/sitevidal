@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Entre em contato com a Vidal Design Solutions. Estamos prontos para atender você!">
+  <title>Contato - Vidal Design Solutions</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo"><img src="logo.png" alt="Vidal Design Solutions"></div>
+      <ul class="nav-links">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="destaques.html">Destaques</a></li>
+        <li><a class="active" href="contato.html">Contato</a></li>
+      </ul>
+      <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i><span class="cart-count">0</span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="breadcrumb">
+    <div class="container">
+      <a href="index.html">Início</a> / <span>Contato</span>
+    </div>
+  </div>
+
+  <section class="contato-hero">
+    <div class="container">
+      <h1>Entre em Contato</h1>
+      <p>Estamos prontos para transformar suas ideias em realidade</p>
+    </div>
+  </section>
+
+  <section class="contato-info">
+    <div class="container">
+      <div class="contato-grid">
+        <div class="contato-card">
+          <div class="contato-icon"><i class="fab fa-whatsapp"></i></div>
+          <h3>WhatsApp</h3>
+          <p>+55 (11) 96864-9673</p>
+          <a href="https://wa.me/5511968649673?text=Olá! Gostaria de fazer um orçamento." class="btn-contact" target="_blank">Chamar no WhatsApp</a>
+        </div>
+
+        <div class="contato-card">
+          <div class="contato-icon"><i class="fas fa-envelope"></i></div>
+          <h3>E-mail</h3>
+          <p>vidaldesignsolutions@gmail.com</p>
+          <a href="mailto:vidaldesignsolutions@gmail.com" class="btn-contact">Enviar E-mail</a>
+        </div>
+
+        <div class="contato-card">
+          <div class="contato-icon"><i class="fab fa-instagram"></i></div>
+          <h3>Instagram</h3>
+          <p>@vidaldesignsolutions</p>
+          <a href="https://instagram.com/vidaldesignsolutions" class="btn-contact" target="_blank">Seguir no Instagram</a>
+        </div>
+
+        <div class="contato-card">
+          <div class="contato-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Localização</h3>
+          <p>Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
+          <a href="#mapa" class="btn-contact">Ver no Mapa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato-form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="form-info">
+          <h2>Solicite um Orçamento</h2>
+          <p>Preencha o formulário ao lado e entraremos em contato o mais rápido possível.</p>
+
+          <div class="form-benefits">
+            <div class="form-benefit"><i class="fas fa-check-circle"></i><span>Resposta em até 2 horas</span></div>
+            <div class="form-benefit"><i class="fas fa-check-circle"></i><span>Orçamento sem compromisso</span></div>
+            <div class="form-benefit"><i class="fas fa-check-circle"></i><span>Atendimento personalizado</span></div>
+            <div class="form-benefit"><i class="fas fa-check-circle"></i><span>Suporte completo</span></div>
+          </div>
+
+          <div class="horario-atendimento">
+            <h3><i class="fas fa-clock"></i> Horário de Atendimento</h3>
+            <p><strong>Segunda a Sexta:</strong> 8h às 18h</p>
+            <p><strong>Sábado:</strong> 9h às 13h</p>
+            <p><strong>Domingo:</strong> Fechado</p>
+          </div>
+        </div>
+
+        <div class="form-container">
+          <form id="contatoForm">
+            <div class="form-group">
+              <label for="nome">Nome Completo *</label>
+              <input type="text" id="nome" name="nome" required>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="telefone">Telefone *</label>
+                <input type="tel" id="telefone" name="telefone" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="produto">Produto de Interesse</label>
+              <select id="produto" name="produto">
+                <option value="">Selecione um produto</option>
+                <option value="adesivos">Adesivos</option>
+                <option value="banners">Banners</option>
+                <option value="placas">Placas</option>
+                <option value="lonas">Lonas</option>
+                <option value="impressos">Impressos</option>
+                <option value="camisetas">Camisetas</option>
+                <option value="kit">Kit Promocional</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="mensagem">Mensagem *</label>
+              <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Descreva seu projeto ou dúvida..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-submit"><i class="fas fa-paper-plane"></i> Enviar Mensagem</button>
+          </form>
+
+          <div id="formSuccess" class="form-message success" style="display:none;">
+            <i class="fas fa-check-circle"></i>
+            <p>Mensagem enviada com sucesso! Entraremos em contato em breve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mapa-section" id="mapa">
+    <div class="container">
+      <h2>Nossa Localização</h2>
+      <div class="mapa-wrapper">
+        <!-- Substitua por um embed do Google Maps do seu endereço exato (opcional) -->
+        <iframe
+          src="https://www.google.com/maps?q=Rua%20Antonio%20Cordeiro%2C%2057%20%2008715-470&output=embed"
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <p class="mapa-endereco">
+        <i class="fas fa-map-marker-alt"></i>
+        <strong>Endereço:</strong> Rua Antonio Cordeiro, 57 – CEP 08715-470
+      </p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Pronto para começar seu projeto?</h2>
+      <p>Entre em contato agora e receba um orçamento personalizado</p>
+      <a href="https://wa.me/5511968649673?text=Olá! Gostaria de fazer um orçamento." class="btn-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Seu Carrinho</h3>
+      <button onclick="toggleCart()" class="close-cart">&times;</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">R$ 0,00</span>
+      </div>
+      <button class="btn-primary" onclick="generatePDF()"><i class="fas fa-file-pdf"></i> Gerar Orçamento PDF</button>
+      <button class="btn-whatsapp" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Vidal Design Solutions</h4>
+          <p>Soluções gráficas profissionais com qualidade e agilidade.</p>
+          <div class="social-links">
+            <a href="https://instagram.com/vidaldesignsolutions" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/5511968649673" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Links Rápidos</h4>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
+            <li><a href="destaques.html">Destaques</a></li>
+            <li><a href="contato.html">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contato</h4>
+          <p><i class="fas fa-phone"></i> +55 (11) 96864-9673</p>
+          <p><i class="fas fa-envelope"></i> vidaldesignsolutions@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Rua Antonio Cordeiro, 57 – CEP 08715-470</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Vidal Design Solutions. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="cart.js"></script>
+  <script>
+    document.getElementById('contatoForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const telefone = document.getElementById('telefone').value;
+      const produto = document.getElementById('produto').value;
+      const mensagem = document.getElementById('mensagem').value;
+
+      const whatsappMsg =
+        `*Novo Contato pelo Site*%0A%0A`+
+        `*Nome:* ${encodeURIComponent(nome)}%0A`+
+        `*E-mail:* ${encodeURIComponent(email)}%0A`+
+        `*Telefone:* ${encodeURIComponent(telefone)}%0A`+
+        `*Produto:* ${encodeURIComponent(produto || 'Não especificado')}%0A`+
+        `*Mensagem:* ${encodeURIComponent(mensagem)}`;
+
+      window.open(`https://wa.me/5511968649673?text=${whatsappMsg}`, '_blank');
+
+      document.getElementById('contatoForm').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+
+      setTimeout(()=>{
+        document.getElementById('contatoForm').reset();
+        document.getElementById('contatoForm').style.display = 'block';
+        document.getElementById('formSuccess').style.display = 'none';
+      }, 3000);
+    });
+
+    document.getElementById('telefone').addEventListener('input', function(e){
+      let v = e.target.value.replace(/\D/g,'');
+      if (v.length <= 11){
+        v = v.replace(/^(\d{2})(\d)/g, '($1) $2');
+        v = v.replace(/(\d)(\d{4})$/, '$1-$2');
+      }
+      e.target.value = v;
+    });
+  </script>
+</body>
+</html>
