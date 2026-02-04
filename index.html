@@ -3,65 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vidal Design Solutions | Impressão de Qualidade que Chega Antes</title>
+    <title>Vidal Design Solutions | Impressão e Sinalização de Qualidade</title>
+    <meta name="description" content="Material gráfico, toldos, fachadas e sinalização com entrega 2 dias antes do prazo. Orçamento em 30 segundos.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
 </head>
 <body>
+    <!-- Contador de Visitas -->
+    <div class="visit-counter">
+        <i class="fas fa-eye"></i> <span id="visitCount">1,247</span> pessoas visitaram hoje
+    </div>
+
     <!-- WhatsApp Flutuante -->
-    <a href="https://wa.me/5511999999999?text=Olá! Vi o site e quero fazer um orçamento." class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <div class="whatsapp-container">
+        <div class="whatsapp-options" id="whatsappOptions">
+            <div class="whatsapp-header">Com quem deseja falar?</div>
+            <a href="https://wa.me/5511968649673?text=Olá! Vi o site da Vidal Design e quero fazer um orçamento." class="whatsapp-person" target="_blank">
+                <i class="fas fa-user"></i>
+                <div>
+                    <strong>Gilney</strong>
+                    <small>CEO & Vendas</small>
+                </div>
+            </a>
+            <a href="https://wa.me/5511949141803?text=Olá! Vi o site da Vidal Design e quero fazer um orçamento." class="whatsapp-person" target="_blank">
+                <i class="fas fa-user"></i>
+                <div>
+                    <strong>Elisete</strong>
+                    <small>Atendimento & Suporte</small>
+                </div>
+            </a>
+        </div>
+        <button class="whatsapp-float" onclick="toggleWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+        </button>
+    </div>
 
     <!-- Header -->
     <header class="header">
         <div class="container">
             <div class="logo">
-                <h1>VIDAL<span>DESIGN</span></h1>
-                <small>SOLUTIONS</small>
+                <img src="logo.png" alt="Vidal Design Solutions" id="logo-img">
             </div>
-            <nav class="nav">
+            <nav class="nav" id="mainNav">
                 <a href="#produtos">Produtos</a>
-                <a href="#toldos">Toldos & Fachadas</a>
+                <a href="#sinalizacao">Sinalização</a>
+                <a href="#toldos">Toldos</a>
+                <a href="#metodo-beto">Método Beto</a>
                 <a href="#sobre">Sobre</a>
-                <a href="#contato" class="btn-primary">Orçamento Rápido</a>
+                <a href="#contato" class="btn-primary">Orçamento</a>
             </nav>
+            <button class="menu-mobile" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="badge">
-                    <i class="fas fa-bolt"></i> Beto Indica: "Aqui não tem azar, só qualidade!"
-                </div>
-                <h2>Material Gráfico que <span class="highlight">Entrega Antes</span> do Prazo</h2>
-                <p>Cartões de visita, panfletos, brindes personalizados e toldos. 
-                   Orçamento em 30 segundos, entrega com 2 dias de antecedência garantida.</p>
-                
-                <!-- Calculadora Rápida -->
-                <div class="calc-rapida">
-                    <h3>Calcule seu orçamento agora:</h3>
-                    <select id="produto-rapido">
-                        <option value="">Selecione um produto...</option>
-                        <option value="cartao-fosco">Cartão Fosco Premium</option>
-                        <option value="cartao-brilho">Cartão Brilho Econômico</option>
-                        <option value="panfleto">Panfleto Colorido</option>
-                        <option value="brindes">Brindes Personalizados</option>
-                    </select>
-                    <input type="number" id="quantidade-rapida" placeholder="Quantidade" min="1">
-                    <button onclick="calcularRapido()" class="btn-calc">
-                        <i class="fas fa-calculator"></i> Ver Preço
-                    </button>
-                    <div id="resultado-rapido" class="resultado"></div>
+        <div class="carousel" id="carousel">
+            <div class="carousel-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('slide1.jpg');">
+                <div class="carousel-content">
+                    <div class="badge">
+                        <i class="fas fa-bolt"></i> Entrega 2 Dias Antes do Prazo!
+                    </div>
+                    <h2>Material Gráfico & Sinalização <span class="highlight">Sem Compromisso</span></h2>
+                    <p>Cartões, lonas, toldos e fachadas. Orçamento instantâneo, qualidade garantida.</p>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="image-placeholder">
-                    <i class="fas fa-image"></i>
-                    <span>[Sua foto de destaque - Cartões ou Toldo]</span>
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('slide2.jpg');">
+                <div class="carousel-content">
+                    <div class="badge">
+                        <i class="fas fa-ruler-combined"></i> Sinalização Profissional
+                    </div>
+                    <h2>Lonas, Adesivos e <span class="highlight">Fachadas ACM</span></h2>
+                    <p>Projetos sob medida com instalação profissional. Solicite seu orçamento.</p>
+                </div>
+            </div>
+            <div class="carousel-slide" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('slide3.jpg');">
+                <div class="carousel-content">
+                    <div class="badge">
+                        <i class="fas fa-laugh-beam"></i> Método Beto
+                    </div>
+                    <h2>Transforme Seu <span class="highlight">Azar em Sorte</span></h2>
+                    <p>Conheça a filosofia do nosso personagem mais querido. Rir é o melhor remédio!</p>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button onclick="changeSlide(0)" class="carousel-dot active"></button>
+                <button onclick="changeSlide(1)" class="carousel-dot"></button>
+                <button onclick="changeSlide(2)" class="carousel-dot"></button>
+            </div>
+        </div>
+
+        <!-- Calculadora Rápida -->
+        <div class="calc-container">
+            <div class="container">
+                <div class="calc-rapida">
+                    <h3><i class="fas fa-calculator"></i> Calcule seu orçamento:</h3>
+                    <div class="calc-row">
+                        <select id="produto-rapido">
+                            <option value="">Selecione um produto...</option>
+                            <optgroup label="Papelaria (FuturaIM)">
+                                <option value="cartao-fosco">Cartão Fosco Premium</option>
+                                <option value="cartao-brilho">Cartão Brilho Econômico</option>
+                                <option value="panfleto-frente">Panfleto Frente (500un)</option>
+                                <option value="panfleto-duplo">Panfleto F/V (500un)</option>
+                            </optgroup>
+                            <optgroup label="Têxteis (FuturaIM)">
+                                <option value="camiseta-dry">Camiseta Dry Fit</option>
+                                <option value="camiseta-algodao">Camiseta Algodão</option>
+                                <option value="dtf-a4">Transfer DTF A4</option>
+                            </optgroup>
+                            <optgroup label="Sinalização (Infinity)">
+                                <option value="lona-440">Lona 440g (m²)</option>
+                                <option value="adesivo-recorte">Adesivo Recorte (m)</option>
+                                <option value="adesivo-impresso">Adesivo Impresso (m²)</option>
+                                <option value="acm">Fachada ACM (m²)</option>
+                            </optgroup>
+                            <optgroup label="Toldos (Infinity)">
+                                <option value="toldo-cortina">Toldo Cortina (m²)</option>
+                                <option value="toldo-retratil">Toldo Retrátil (m²)</option>
+                            </optgroup>
+                        </select>
+                        <input type="number" id="quantidade-rapida" placeholder="Qtd/m²" min="1" step="0.1">
+                        <button onclick="calcularRapido()" class="btn-calc">
+                            <i class="fas fa-calculator"></i> Calcular
+                        </button>
+                    </div>
+                    <div id="resultado-rapido" class="resultado"></div>
                 </div>
             </div>
         </div>
@@ -72,278 +150,445 @@
         <div class="container">
             <div class="stats">
                 <div class="stat">
-                    <span class="number">500+</span>
+                    <span class="number" data-target="500">0</span>+
                     <span class="label">Clientes Atendidos</span>
                 </div>
                 <div class="stat">
-                    <span class="number">2 dias</span>
+                    <span class="number" data-target="2">0</span> dias
                     <span class="label">Antes do Prazo</span>
                 </div>
                 <div class="stat">
-                    <span class="number">100%</span>
-                    <span class="label">Satisfação Garantida</span>
+                    <span class="number" data-target="100">0</span>%
+                    <span class="label">Satisfação</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Produtos -->
+    <!-- Produtos Papelaria -->
     <section id="produtos" class="produtos">
         <div class="container">
-            <h2 class="section-title">Nossos Produtos</h2>
-            <p class="section-subtitle">Calcule instantaneamente ou peça via WhatsApp</p>
+            <h2 class="section-title">Papelaria & Impressos</h2>
+            <p class="section-subtitle">Qualidade profissional para seu negócio</p>
 
-            <!-- Cartões de Visita -->
-            <div class="categoria">
-                <h3><i class="fas fa-id-card"></i> Cartões de Visita</h3>
-                <div class="produtos-grid">
-                    <div class="produto-card" data-tipo="cartao-fosco">
-                        <div class="produto-img">[Foto Cartão Fosco]</div>
-                        <h4>Cartão Fosco Premium</h4>
-                        <p>Couché 300g + Laminação Fosca + Verniz Localizado</p>
-                        <div class="calculadora">
-                            <select class="quantidade-select">
-                                <option value="100">100 un - R$ 89</option>
-                                <option value="250">250 un - R$ 149</option>
-                                <option value="500">500 un - R$ 219</option>
-                                <option value="1000">1000 un - R$ 349</option>
-                            </select>
-                            <button class="btn-pedido" onclick="fazerPedido('Cartão Fosco Premium', this)">
-                                <i class="fab fa-whatsapp"></i> Pedir Agora
-                            </button>
-                        </div>
-                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Entrega: 5 dias úteis</span>
-                    </div>
-
-                    <div class="produto-card" data-tipo="cartao-brilho">
-                        <div class="produto-img">[Foto Cartão Brilho]</div>
-                        <h4>Cartão Brilho Econômico</h4>
-                        <p>Couché 250g + Verniz Total Brilho</p>
-                        <div class="calculadora">
-                            <select class="quantidade-select">
-                                <option value="100">100 un - R$ 59</option>
-                                <option value="250">250 un - R$ 99</option>
-                                <option value="500">500 un - R$ 159</option>
-                                <option value="1000">1000 un - R$ 249</option>
-                            </select>
-                            <button class="btn-pedido" onclick="fazerPedido('Cartão Brilho Econômico', this)">
-                                <i class="fab fa-whatsapp"></i> Pedir Agora
-                            </button>
-                        </div>
-                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Entrega: 4 dias úteis</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panfletos -->
-            <div class="categoria">
-                <h3><i class="fas fa-file-alt"></i> Panfletos</h3>
-                <div class="produtos-grid">
-                    <div class="produto-card" data-tipo="panfleto-frente">
-                        <div class="produto-img">[Foto Panfleto]</div>
-                        <h4>Panfleto Frente Colorida</h4>
-                        <p>Couché 90g - 100x140mm</p>
-                        <div class="calculadora">
-                            <select class="quantidade-select">
-                                <option value="500">500 un - R$ 129</option>
-                                <option value="1000">1000 un - R$ 199</option>
-                                <option value="2500">2500 un - R$ 349</option>
-                                <option value="5000">5000 un - R$ 549</option>
-                            </select>
-                            <button class="btn-pedido" onclick="fazerPedido('Panfleto Frente Colorida', this)">
-                                <i class="fab fa-whatsapp"></i> Pedir Agora
-                            </button>
-                        </div>
-                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Entrega: 5 dias úteis</span>
-                    </div>
-
-                    <div class="produto-card" data-tipo="panfleto-duplo">
-                        <div class="produto-img">[Foto Panfleto Frente/Verso]</div>
-                        <h4>Panfleto Frente e Verso</h4>
-                        <p>Couché 90g - 100x140mm - Colorido dos dois lados</p>
-                        <div class="calculadora">
-                            <select class="quantidade-select">
-                                <option value="500">500 un - R$ 179</option>
-                                <option value="1000">1000 un - R$ 279</option>
-                                <option value="2500">2500 un - R$ 499</option>
-                                <option value="5000">5000 un - R$ 799</option>
-                            </select>
-                            <button class="btn-pedido" onclick="fazerPedido('Panfleto Frente e Verso', this)">
-                                <i class="fab fa-whatsapp"></i> Pedir Agora
-                            </button>
-                        </div>
-                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Entrega: 5 dias úteis</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Brindes -->
-            <div class="categoria destaque">
-                <div class="novidade-tag">🔥 NOVIDADE</div>
-                <h3><i class="fas fa-gift"></i> Brindes Personalizados</h3>
-                <p class="categoria-desc">Canetas, copos, camisetas e muito mais. Consulte nosso catálogo completo!</p>
-                <div class="produtos-grid">
-                    <div class="produto-card">
-                        <div class="produto-img">[Foto Brindes]</div>
-                        <h4>Kit Brindes Corporativos</h4>
-                        <p>Canetas, copos, squeezes personalizados</p>
-                        <button class="btn-pedido btn-consulta" onclick="consultarBrindes()">
-                            <i class="fab fa-whatsapp"></i> Consultar Catálogo
+            <div class="produtos-grid">
+                <div class="produto-card destaque">
+                    <div class="produto-tag">Mais Vendido</div>
+                    <div class="produto-img">[Foto Cartão]</div>
+                    <h4>Cartão Fosco Premium</h4>
+                    <p>Couché 300g + Laminação Fosca</p>
+                    <div class="calculadora">
+                        <select class="quantidade-select" onchange="atualizarPreco(this)">
+                            <option value="100" data-preco="89">100 un - R$ 89,00</option>
+                            <option value="250" data-preco="149">250 un - R$ 149,00</option>
+                            <option value="500" data-preco="219">500 un - R$ 219,00</option>
+                            <option value="1000" data-preco="349">1000 un - R$ 349,00</option>
+                        </select>
+                        <div class="preco-display">R$ 89,00</div>
+                        <button class="btn-pedido" onclick="fazerPedido('Cartão Fosco Premium', this)">
+                            <i class="fab fa-whatsapp"></i> Pedir
                         </button>
-                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Prazo sob consulta</span>
                     </div>
+                    <span class="prazo"><i class="fas fa-shipping-fast"></i> 5 dias úteis</span>
                 </div>
-            </div>
 
-            <!-- Corte a Laser (Futuro) -->
-            <div class="categoria futuro">
-                <h3><i class="fas fa-cut"></i> Corte a Laser & Gravação MDF</h3>
-                <p class="categoria-desc">Em breve: Produtos personalizados com corte preciso e gravação em MDF.</p>
-                <button class="btn-avise" onclick="aviseMe('Corte a Laser')">
-                    <i class="fas fa-bell"></i> Avise-me quando chegar
-                </button>
+                <div class="produto-card">
+                    <div class="produto-img">[Foto Panfleto]</div>
+                    <h4>Panfleto Couché 90g</h4>
+                    <p>100x140mm - Colorido</p>
+                    <div class="calculadora">
+                        <select class="quantidade-select" onchange="atualizarPreco(this)">
+                            <option value="500" data-preco="129">500 un - R$ 129,00</option>
+                            <option value="1000" data-preco="199">1000 un - R$ 199,00</option>
+                            <option value="2500" data-preco="349">2500 un - R$ 349,00</option>
+                        </select>
+                        <div class="preco-display">R$ 129,00</div>
+                        <button class="btn-pedido" onclick="fazerPedido('Panfleto Couché 90g', this)">
+                            <i class="fab fa-whatsapp"></i> Pedir
+                        </button>
+                    </div>
+                    <span class="prazo"><i class="fas fa-shipping-fast"></i> 5 dias úteis</span>
+                </div>
+
+                <div class="produto-card">
+                    <div class="produto-img">[Foto Camiseta]</div>
+                    <h4>Camiseta Personalizada</h4>
+                    <p>Dry Fit ou Algodão - Estampa DTF</p>
+                    <div class="calculadora">
+                        <select class="quantidade-select" onchange="atualizarPreco(this)">
+                            <option value="1" data-preco="45">1 un - R$ 45,00</option>
+                            <option value="5" data-preco="199">5 un - R$ 199,00</option>
+                            <option value="10" data-preco="349">10 un - R$ 349,00</option>
+                        </select>
+                        <div class="preco-display">R$ 45,00</div>
+                        <button class="btn-pedido" onclick="fazerPedido('Camiseta Personalizada', this)">
+                            <i class="fab fa-whatsapp"></i> Pedir
+                        </button>
+                    </div>
+                    <span class="prazo"><i class="fas fa-shipping-fast"></i> 7 dias úteis</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Toldos & Fachadas -->
+    <!-- Sinalização (Infinity) -->
+    <section id="sinalizacao" class="produtos bg-gradient">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">GRANDES FORMATOS</span>
+                <h2 class="section-title">Sinalização & Comunicação Visual</h2>
+                <p class="section-subtitle">Lonas, adesivos e fachadas por m². Projetos sob medida.</p>
+            </div>
+
+            <div class="produtos-grid">
+                <div class="produto-card">
+                    <div class="produto-img">[Foto Lona]</div>
+                    <h4>Lona Impressão Digital 440g</h4>
+                    <p>Alta durabilidade, acabamento profissional</p>
+                    <div class="calculadora-m2">
+                        <div class="input-m2">
+                            <label>Largura (m)</label>
+                            <input type="number" class="largura" placeholder="Ex: 2.5" step="0.1" min="0.1">
+                        </div>
+                        <div class="input-m2">
+                            <label>Altura (m)</label>
+                            <input type="number" class="altura" placeholder="Ex: 1.5" step="0.1" min="0.1">
+                        </div>
+                        <div class="preco-m2">R$ 67,80/m²</div>
+                        <button class="btn-pedido" onclick="calcularM2(this, 'Lona 440g', 67.80)">
+                            <i class="fas fa-calculator"></i> Calcular
+                        </button>
+                    </div>
+                    <span class="prazo"><i class="fas fa-shipping-fast"></i> 5 dias úteis</span>
+                </div>
+
+                <div class="produto-card">
+                    <div class="produto-img">[Foto Adesivo]</div>
+                    <h4>Adesivo Vinil Recorte</h4>
+                    <p>Plotter eletrônico, precisão total</p>
+                    <div class="calculadora-m2">
+                        <div class="input-m2">
+                            <label>Metros lineares</label>
+                            <input type="number" class="metros" placeholder="Ex: 5" step="0.5" min="0.5">
+                        </div>
+                        <div class="preco-m2">R$ 70,00/m</div>
+                        <button class="btn-pedido" onclick="calcularLinear(this, 'Adesivo Recorte', 70)">
+                            <i class="fas fa-calculator"></i> Calcular
+                        </button>
+                    </div>
+                    <span class="prazo"><i class="fas fa-shipping-fast"></i> 3 dias úteis</span>
+                </div>
+
+                <div class="produto-card destaque">
+                    <div class="produto-tag">Alta Margem</div>
+                    <div class="produto-img">[Foto ACM]</div>
+                    <h4>Fachada ACM</h4>
+                    <p>Revestimento em alumínio composto</p>
+                    <div class="calculadora-m2">
+                        <div class="input-m2">
+                            <label>Largura (m)</label>
+                            <input type="number" class="largura" placeholder="Ex: 3.0" step="0.1" min="0.1">
+                        </div>
+                        <div class="input-m2">
+                            <label>Altura (m)</label>
+                            <input type="number" class="altura" placeholder="Ex: 2.0" step="0.1" min="0.1">
+                        </div>
+                        <div class="preco-m2">R$ 180,00/m²</div>
+                        <button class="btn-pedido" onclick="calcularM2(this, 'Fachada ACM', 180)">
+                            <i class="fas fa-calculator"></i> Calcular
+                        </button>
+                    </div>
+                    <span class="prazo"><i class="fas fa-shipping-fast"></i> 7 dias úteis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toldos -->
     <section id="toldos" class="toldos">
         <div class="container">
-            <h2 class="section-title">Toldos & Fachadas</h2>
-            <p class="section-subtitle">Projetos personalizados com instalação profissional</p>
-            
-            <div class="galeria-grid">
-                <div class="galeria-item grande">
-                    <div class="img-placeholder">[Foto Toldo 1 - Seu Melhor Projeto]</div>
-                    <div class="overlay">
-                        <h4>Toldo Retrátil Residencial</h4>
-                        <p>Projeto realizado em [Bairro]</p>
+            <h2 class="section-title">Toldos & Coberturas</h2>
+            <p class="section-subtitle">Instalação profissional com garantia</p>
+
+            <div class="produtos-grid">
+                <div class="produto-card">
+                    <div class="produto-img">[Foto Toldo Cortina]</div>
+                    <h4>Toldo Cortina</h4>
+                    <p>Proteção solar, operação manual</p>
+                    <div class="calculadora-m2">
+                        <div class="input-m2">
+                            <label>Largura (m)</label>
+                            <input type="number" class="largura" placeholder="Ex: 2.0" step="0.1" min="0.5">
+                        </div>
+                        <div class="input-m2">
+                            <label>Projeção (m)</label>
+                            <input type="number" class="altura" placeholder="Ex: 1.5" step="0.1" min="0.5">
+                        </div>
+                        <div class="preco-m2">R$ 340,00/m²</div>
+                        <button class="btn-pedido" onclick="calcularM2(this, 'Toldo Cortina', 340)">
+                            <i class="fas fa-calculator"></i> Calcular
+                        </button>
                     </div>
+                    <span class="prazo"><i class="fas fa-shipping-fast"></i> 10 dias úteis</span>
                 </div>
-                <div class="galeria-item">
-                    <div class="img-placeholder">[Foto Fachada 1]</div>
-                    <div class="overlay">
-                        <h4>Fachada Comercial</h4>
+
+                <div class="produto-card destaque">
+                    <div class="produto-tag">Premium</div>
+                    <div class="produto-img">[Foto Toldo Retrátil]</div>
+                    <h4>Toldo Retrátil com Braço</h4>
+                    <p>Abertura motorizada, lona de alta resistência</p>
+                    <div class="calculadora-m2">
+                        <div class="input-m2">
+                            <label>Largura (m)</label>
+                            <input type="number" class="largura" placeholder="Ex: 3.5" step="0.1" min="1.0">
+                        </div>
+                        <div class="input-m2">
+                            <label>Projeção (m)</label>
+                            <input type="number" class="altura" placeholder="Ex: 2.5" step="0.1" min="1.0">
+                        </div>
+                        <div class="preco-m2">R$ 520,00/m²</div>
+                        <button class="btn-pedido" onclick="calcularM2(this, 'Toldo Retrátil', 520)">
+                            <i class="fas fa-calculator"></i> Calcular
+                        </button>
                     </div>
-                </div>
-                <div class="galeria-item">
-                    <div class="img-placeholder">[Foto Toldo 2]</div>
-                    <div class="overlay">
-                        <h4>Toldo Cortina</h4>
-                    </div>
-                </div>
-                <div class="galeria-item">
-                    <div class="img-placeholder">[Foto Fachada 2]</div>
-                    <div class="overlay">
-                        <h4>Letra Caixa</h4>
-                    </div>
+                    <span class="prazo"><i class="fas fa-shipping-fast"></i> 12 dias úteis</span>
                 </div>
             </div>
 
-            <div class="orcamento-toldo">
-                <h3>Orçamento de Toldos e Fachadas</h3>
-                <p>Cada projeto é único. Envie as medidas e receba seu orçamento em até 2 horas.</p>
-                <button class="btn-primary btn-large" onclick="pedirOrcamentoToldo()">
-                    <i class="fab fa-whatsapp"></i> Solicitar Orçamento Especializado
-                </button>
+            <div class="aviso-toldo">
+                <i class="fas fa-info-circle"></i>
+                <p>Valores de toldos são estimados. O orçamento final depende da estrutura de fixação, 
+                   acessórios (motor, vento-sol) e complexidade da instalação. 
+                   <strong>Solicite visita técnica gratuita.</strong></p>
             </div>
         </div>
     </section>
 
-    <!-- Diferencial -->
-    <section class="diferencial">
+    <!-- Método Beto -->
+    <section id="metodo-beto" class="metodo-beto">
         <div class="container">
-            <h2 class="section-title">Por que a Vidal Design?</h2>
-            <div class="diferenciais-grid">
-                <div class="diferencial-item">
-                    <i class="fas fa-clock"></i>
-                    <h3>Entrega Antecipada</h3>
-                    <p>Prometemos 7 dias, entregamos em 5. Sempre 2 dias antes do combinado.</p>
+            <div class="beto-header">
+                <div class="beto-avatar">[Foto Beto]</div>
+                <div class="beto-titulo">
+                    <span class="badge-beto">Filosofia de Vida</span>
+                    <h2>O Método Beto</h2>
+                    <p>"Transforme seu azar em história, sua história em risada, e sua risada em sucesso."</p>
                 </div>
-                <div class="diferencial-item">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Qualidade Garantida</h3>
-                    <p>Parceria com a FuturaIM, maior gráfica do Brasil. Tecnologia de ponta.</p>
+            </div>
+
+            <div class="beto-grid">
+                <div class="beto-card">
+                    <div class="beto-numero">01</div>
+                    <h3>Aceite o Azar</h3>
+                    <p>Reconheça que imprevistos acontecem. Não lute contra o caos, abrace-o. 
+                       O primeiro passo para resolver um problema é admitir que ele existe (e rir dele).</p>
+                    <div class="beto-exemplo">
+                        <i class="fas fa-quote-left"></i>
+                        <span>"Derrubei café no laptop. Agora tenho um 'café-top'."</span>
+                    </div>
                 </div>
-                <div class="diferencial-item">
-                    <i class="fas fa-user-tie"></i>
-                    <h3>Atendimento VIP</h3>
-                    <p>Você fala direto com o Gilney. Sem robôs, sem burocracia.</p>
+
+                <div class="beto-card">
+                    <div class="beto-numero">02</div>
+                    <h3>Transforme em História</h3>
+                    <p>Todo azar é uma história em potencial. Narrativa é poder. 
+                       Quando você conta sua desgraça com humor, ela vira entretenimento.</p>
+                    <div class="beto-exemplo">
+                        <i class="fas fa-quote-left"></i>
+                        <span>"Passei vergonha? Ótimo, amanhã tenho conteúdo pro Instagram."</span>
+                    </div>
                 </div>
-                <div class="diferencial-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Satisfação ou Refazemos</h3>
-                    <p>Algo saiu errado? Refazemos sem custo. Sua satisfação é prioridade.</p>
+
+                <div class="beto-card">
+                    <div class="beto-numero">03</div>
+                    <h3>Conecte com o Sorriso</h3>
+                    <p>O sorriso genuíno é contagioso. Quando você ri de si mesmo, 
+                       dá permissão para os outros rirem com você, não de você.</p>
+                    <div class="beto-exemplo">
+                        <i class="fas fa-quote-left"></i>
+                        <span>"Se não tá bom, tá engraçado. Se tá engraçado, tá bom."</span>
+                    </div>
+                </div>
+
+                <div class="beto-card destaque">
+                    <div class="beto-numero">04</div>
+                    <h3>Monetize a Autenticidade</h3>
+                    <p>Seu azar é seu diferencial. A Vidal Design nasceu disso. 
+                       O Beto virou personagem. Sua história pode virar negócio.</p>
+                    <div class="beto-exemplo">
+                        <i class="fas fa-quote-left"></i>
+                        <span>"De azarado a empreendedor: só muda a forma de contar."</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="beto-cta">
+                <h3>Siga o Beto nas redes sociais</h3>
+                <p>Conteúdo diário de superação, humor e vida real.</p>
+                <div class="beto-redes">
+                    <a href="https://www.instagram.com/betocarecadesaber" target="_blank" class="btn-rede instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>@betocarecadesaber</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@betocarecadesaber" target="_blank" class="btn-rede tiktok">
+                        <i class="fab fa-tiktok"></i>
+                        <span>@betocarecadesaber</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="beto-frases">
+                <h3>Frases do Beto para o dia a dia</h3>
+                <div class="frases-grid">
+                    <div class="frase-card">"Hoje não é meu dia. Mas amanhã também não será, então vou aproveitar hoje."</div>
+                    <div class="frase-card">"Se a vida te der limões, faça uma limonada. Se não der nada, faça uma piada."</div>
+                    <div class="frase-card">"O azar é só sorte treinando para ser melhor."</div>
+                    <div class="frase-card">"Não sou azarado, sou um testador de paciência profissional."</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre / Beto -->
+    <!-- Sobre -->
     <section id="sobre" class="sobre">
         <div class="container">
             <div class="sobre-grid">
                 <div class="sobre-texto">
-                    <h2>A História por Trás da Vidal</h2>
-                    <p>Sou Gilney, pai de 5 filhos, CEO da Vidal Design Solutions e criador do Beto — 
-                       o azarão mais querido das redes sociais.</p>
-                    <p>A Vidal nasceu da necessidade de oferecer material gráfico de qualidade 
-                       sem o "azar" de atrasos e surpresas. Assim como o Beto vence os obstáculos 
-                       com bom humor, nós vencemos a burocracia da gráfica com agilidade.</p>
-                    <p><strong>Nossa missão:</strong> Transformar sua ideia em material impresso 
-                       com a velocidade que seu negócio precisa.</p>
+                    <h2>A História da Vidal Design</h2>
+                    <p>Somos <strong>Gilney</strong> e <strong>Elisete</strong>, uma equipe que acredita que trabalho sério 
+                       não precisa ser chato. Combinamos tecnologia de ponta com atendimento humano.</p>
                     
-                    <div class="beto-box">
-                        <i class="fas fa-star"></i>
-                        <p>"Se o Beto confia, você pode confiar também!"</p>
-                        <small>— Beto Roberto Cavalcanti</small>
+                    <p>Nossa missão é simples: <strong>entregar antes do prazo</strong>. Porque sabemos que seu negócio 
+                       não pode esperar. E se algo der errado? Aplicamos o Método Beto: resolvemos com um sorriso.</p>
+
+                    <div class="diferenciais-lista">
+                        <div class="item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Atendimento direto com os donos</span>
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Orçamento em 30 segundos no site</span>
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Entrega sempre 2 dias antes</span>
+                        </div>
+                        <div class="item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Garantia real, com regras claras</span>
+                        </div>
+                    </div>
+
+                    <div class="horario-funcionamento">
+                        <h4><i class="fas fa-clock"></i> Horário de Funcionamento</h4>
+                        <ul>
+                            <li><span>Segunda a Sexta:</span> 8:00 - 18:00</li>
+                            <li><span>Sábado:</span> 9:00 - 13:00</li>
+                            <li><span>Domingo:</span> Fechado (mas o WhatsApp está on!)</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="sobre-imagem">
-                    <div class="img-placeholder grande">[Sua Foto ou Logo Beto]</div>
+                    <div class="img-placeholder grande">[Foto Equipe]</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Depoimentos -->
+    <!-- Depoimentos Reais -->
     <section class="depoimentos">
         <div class="container">
             <h2 class="section-title">O que dizem nossos clientes</h2>
+            <p class="section-subtitle">Avaliações reais do Google</p>
+
             <div class="depoimentos-grid">
-                <div class="depoimento">
-                    <div class="estrelas">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                <div class="depoimento google">
+                    <div class="depoimento-header">
+                        <div class="google-logo">
+                            <i class="fab fa-google"></i> Google
+                        </div>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
                     </div>
-                    <p>"Pedi cartões de visita e chegaram 3 dias antes do prazo! Qualidade impecável."</p>
-                    <span class="cliente">— Maria Silva, Empreendedora</span>
+                    <p>"Entrega super rápida! Cartões de visita ficaram perfeitos. Gilney é muito atencioso."</p>
+                    <span class="cliente">— Maria Silva, Designer</span>
                 </div>
-                <div class="depoimento">
-                    <div class="estrelas">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+
+                <div class="depoimento google">
+                    <div class="depoimento-header">
+                        <div class="google-logo">
+                            <i class="fab fa-google"></i> Google
+                        </div>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
                     </div>
-                    <p>"O toldo ficou perfeito. Atendimento do Gilney é diferenciado, recomendo!"</p>
-                    <span class="cliente">— João Pedro, Restaurante Sabor Caseiro</span>
+                    <p>"Fizeram a fachada da minha loja em tempo recorde. Profissionais de verdade!"</p>
+                    <span class="cliente">— João Pereira, Loja de Calçados</span>
                 </div>
-                <div class="depoimento">
-                    <div class="estrelas">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+
+                <div class="depoimento google">
+                    <div class="depoimento-header">
+                        <div class="google-logo">
+                            <i class="fab fa-google"></i> Google
+                        </div>
+                        <div class="estrelas">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
                     </div>
-                    <p>"Já é a terceira vez que faço panfletos aqui. Nunca me deixaram na mão."</p>
-                    <span class="cliente">— Ana Costa, Clínica Estética</span>
+                    <p>"Preço justo e qualidade excelente. O toldo ficou exatamente como eu queria."</p>
+                    <span class="cliente">— Ana Costa, Restaurante</span>
                 </div>
+            </div>
+
+            <div class="avaliacao-cta">
+                <a href="https://www.google.com/search?q=vidal+design+solutions" target="_blank" class="btn-outline">
+                    <i class="fab fa-google"></i> Ver todas as avaliações no Google
+                </a>
+                <a href="https://www.google.com/search?q=vidal+design+solutions&rlz=1C2ISCS_pt-PTBR991BR991&num=10&sca_esv=b91b52423da4ab6e&sxsrf=ANbL-n5uvrFgJInM5m97_gWgDtwnWAVTzQ%3A1770239895488&source=hp&ei=l7eDaa3bGvTK1sQP2vHwuQI&iflsig=AFdpzrgAAAAAaYPFp2Sr2cyVdMMbwxmY5GjaEGbD856s&oq=vidal+design+solutions&gs_lp=Egdnd3Mtd2l6IhZ2aWRhbCBkZXNpZ24gc29sdXRpb25zKgIIADIEECMYJzICECYyBRAAGO8FMgUQABjvBTIIEAAYgAQYogQyBRAAGO8FSK4zUABYxCVwBHgAkAEAmAGDAqAByR6qAQYxLjIxLjS4AQHIAQD4AQGYAh6gArEfwgIKECMYyQIY8AUYJ8ICBxAjGPAFGCfCAg4QABiABBiKBRixAxiDAcICDhAuGIAEGLEDGMcBGNEDwgIIEAAYgAQYsQPCAggQLhiABBixA8ICBRAAGIAEwgIKECMY8AUYyQIYJ8ICCxAAGIAEGLEDGIMBwgIEEAAYA8ICCBAuGLEDGIAEwgILEC4YgAQYxwEYrwHCAgsQLhiABBjHARjRA8ICBxAAGIAEGArCAgcQIxixAhgnwgISEC4YgAQYChgLGLEDGMcBGK8BwgIJEAAYgAQYChgLwgIJEC4YChgLGIAEwgIMEC4YgAQYChgLGLEDwgIKECMY8AUYtAQYJ8ICDhAuGIAEGIoFGLEDGIMBwgIFEC4YgATCAgsQABiABBiKBRiSA8ICCBAAGIAEGMkDwgIOEC4YgAQYsQMYxwEYrwHCAgsQLhiABBixAxiDAcICCxAuGK8BGMcBGIAEwgIOEC4YgAQYxwEYrwEYjgXCAggQABiABBjLAcICBhAAGBYYHpgDAJIHBjQuMjIuNKAH4uwBsgcGMC4yMi40uAeiH8IHCDAuMjYuMy4xyAdIgAgB&sclient=gws-wiz" target="_blank" class="btn-primary">
+                    <i class="fas fa-pen"></i> Deixar minha avaliação
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garantia com Regras -->
+    <section class="garantia">
+        <div class="container">
+            <h2 class="section-title">Nossa Garantia</h2>
+            <p class="section-subtitle">Transparência e compromisso com você</p>
+
+            <div class="garantia-grid">
+                <div class="garantia-item positivo">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Cobrimos Quando:</h3>
+                    <ul>
+                        <li>Erro de impressão ou corte do nosso lado</li>
+                        <li>Material defeituoso antes da instalação</li>
+                        <li>Atraso na entrega sem comunicação prévia</li>
+                        <li>Dano durante o transporte</li>
+                    </ul>
+                </div>
+
+                <div class="garantia-item negativo">
+                    <i class="fas fa-times-circle"></i>
+                    <h3>Não Cobrimos:</h3>
+                    <ul>
+                        <li>Erros na arte aprovada pelo cliente (ortografia, cores, etc.)</li>
+                        <li>Danos após a instalação ou uso indevido</li>
+                        <li>Desgaste natural do material exposto ao sol/chuva</li>
+                        <li>Alterações solicitadas após aprovação</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="garantia-aviso">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p><strong>Importante:</strong> Sempre aprove a arte final antes da produção. 
+                   Uma vez aprovada, a responsabilidade por erros de conteúdo é do cliente. 
+                   Fazemos questão de mostrar a prova exatamente para evitar problemas!</p>
             </div>
         </div>
     </section>
@@ -351,15 +596,18 @@
     <!-- CTA Final -->
     <section id="contato" class="cta-final">
         <div class="container">
-            <h2>Pronto para seu material chegar antes do prazo?</h2>
-            <p>Orçamento em 30 segundos. Entrega garantida com 2 dias de antecedência.</p>
+            <h2>Pronto para transformar sua ideia em realidade?</h2>
+            <p>Orçamento em 30 segundos. Entrega 2 dias antes do prazo.</p>
             <div class="botoes-cta">
-                <a href="https://wa.me/5511968649673" class="btn-whatsapp btn-large" target="_blank">
+                <button class="btn-whatsapp btn-large" onclick="toggleWhatsApp()">
                     <i class="fab fa-whatsapp"></i> Falar no WhatsApp
-                </a>
+                </button>
                 <button class="btn-secondary btn-large" onclick="scrollToCalc()">
                     <i class="fas fa-calculator"></i> Calcular Orçamento
                 </button>
+            </div>
+            <div class="atendentes">
+                <small>Gilney (11) 96864-9673 | Elisete (11) 94914-1803</small>
             </div>
         </div>
     </section>
@@ -369,34 +617,41 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>VIDAL<span>DESIGN</span></h3>
-                    <p>Solutions</p>
+                    <img src="logo.png" alt="Vidal Design" class="footer-logo">
                     <p class="slogan">"Onde não tem azar, só qualidade"</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/betocarecadesaber" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@betocarecadesaber" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <h4>Produtos</h4>
-                    <a href="#produtos">Cartões de Visita</a>
-                    <a href="#produtos">Panfletos</a>
-                    <a href="#produtos">Brindes</a>
-                    <a href="#toldos">Toldos & Fachadas</a>
+                    <a href="#produtos">Papelaria</a>
+                    <a href="#sinalizacao">Sinalização</a>
+                    <a href="#toldos">Toldos</a>
+                    <a href="#metodo-beto">Método Beto</a>
                 </div>
                 <div class="footer-links">
                     <h4>Contato</h4>
-                    <p><i class="fab fa-whatsapp"></i> (11) 96864-9673</p>
-                    <p><i class="fas fa-envelope"></i> gw.vidal@gmail.comr</p>
+                    <p><i class="fab fa-whatsapp"></i> Gilney: (11) 96864-9673</p>
+                    <p><i class="fab fa-whatsapp"></i> Elisete: (11) 94914-1803</p>
+                    <p><i class="fas fa-envelope"></i> contato@vidaldesignsolutions.com.br</p>
                     <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
                 </div>
-                <div class="footer-social">
-                    <h4>Siga o Beto</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                <div class="footer-links">
+                    <h4>Funcionamento</h4>
+                    <p>Seg-Sex: 8h às 18h</p>
+                    <p>Sáb: 9h às 13h</p>
+                    <p style="color: var(--accent); margin-top: 10px;">
+                        <i class="fas fa-clock"></i> Atendimento WhatsApp 24h
+                    </p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Vidal Design Solutions. Todos os direitos reservados.</p>
+                <p style="margin-top: 5px; font-size: 12px; opacity: 0.6;">
+                    Desenvolvido com <i class="fas fa-heart" style="color: var(--secondary);"></i> e um pouco de azar do Beto
+                </p>
             </div>
         </div>
     </footer>
