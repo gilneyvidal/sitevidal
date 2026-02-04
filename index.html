@@ -1,241 +1,406 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vidal Design Solutions | Comunicação Visual e Impressões</title>
-  <meta name="description" content="Comunicação visual, banners, adesivos, camisetas personalizadas e fachadas em Mogi das Cruzes. Orçamentos rápidos via WhatsApp.">
-  <link rel="stylesheet" href="styles.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.ico">
-  <script defer src="cart.js"></script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Vidal Design Solutions",
-    "image":"https://www.vidaldesignsolutions.com.br/favicon.ico",
-    "telephone":"+55 11 96864-9673",
-    "email":"vidaldesignsolutions@gmail.com",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Rua Antonio Cordeiro, 57",
-      "addressLocality":"Mogi das Cruzes",
-      "addressRegion":"SP",
-      "postalCode":"08715-470",
-      "addressCountry":"BR"
-    },
-    "url":"https://www.vidaldesignsolutions.com.br",
-    "priceRange":"R$",
-    "sameAs":[
-      "https://www.google.com/search?q=Vidal+Design+Solutions"
-    ],
-    "openingHoursSpecification":[
-      {
-        "@type":"OpeningHoursSpecification",
-        "dayOfWeek":[
-          "Monday","Tuesday","Wednesday","Thursday","Friday"
-        ],
-        "opens":"08:00",
-        "closes":"18:00"
-      },
-      {
-        "@type":"OpeningHoursSpecification",
-        "dayOfWeek":"Saturday",
-        "opens":"09:00",
-        "closes":"13:00"
-      }
-    ]
-  }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidal Design Solutions | Impressão de Qualidade que Chega Antes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-wrap">
-      <a class="logo" href="index.html" aria-label="Vidal Design Solutions">
-        <img src="logo.png" alt="Vidal Design Solutions" />
-      </a>
-      <nav class="nav">
-        <a href="index.html" class="active">Início</a>
-        <a href="produtos.html">Produtos</a>
-        <a href="destaques.html">Destaques</a>
-        <a href="contato.html">Contato</a>
-        <a class="cart-link" href="#" id="openCartBtn">Carrinho (<span id="cartCount">0</span>)</a>
-      </nav>
-    </div>
-  </header>
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5511999999999?text=Olá! Vi o site e quero fazer um orçamento." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
-  <main>
-    <!-- Hero com Carrossel -->
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>VIDAL<span>DESIGN</span></h1>
+                <small>SOLUTIONS</small>
+            </div>
+            <nav class="nav">
+                <a href="#produtos">Produtos</a>
+                <a href="#toldos">Toldos & Fachadas</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato" class="btn-primary">Orçamento Rápido</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-inner container">
-        <div class="hero-copy">
-          <h1>Comunicação Visual que destaca sua marca</h1>
-          <p>Adesivos, banners e camisetas personalizadas com qualidade profissional e prazos rápidos.</p>
-          <div class="hero-cta">
-            <a href="produtos.html" class="btn btn-primary">Ver Produtos</a>
-            <a class="btn btn-outline" target="_blank" rel="noopener" href="https://wa.me/5511968649673?text=Olá!%20Quero%20um%20orçamento.">Pedir Orçamento</a>
-          </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <i class="fas fa-bolt"></i> Beto Indica: "Aqui não tem azar, só qualidade!"
+                </div>
+                <h2>Material Gráfico que <span class="highlight">Entrega Antes</span> do Prazo</h2>
+                <p>Cartões de visita, panfletos, brindes personalizados e toldos. 
+                   Orçamento em 30 segundos, entrega com 2 dias de antecedência garantida.</p>
+                
+                <!-- Calculadora Rápida -->
+                <div class="calc-rapida">
+                    <h3>Calcule seu orçamento agora:</h3>
+                    <select id="produto-rapido">
+                        <option value="">Selecione um produto...</option>
+                        <option value="cartao-fosco">Cartão Fosco Premium</option>
+                        <option value="cartao-brilho">Cartão Brilho Econômico</option>
+                        <option value="panfleto">Panfleto Colorido</option>
+                        <option value="brindes">Brindes Personalizados</option>
+                    </select>
+                    <input type="number" id="quantidade-rapida" placeholder="Quantidade" min="1">
+                    <button onclick="calcularRapido()" class="btn-calc">
+                        <i class="fas fa-calculator"></i> Ver Preço
+                    </button>
+                    <div id="resultado-rapido" class="resultado"></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-image"></i>
+                    <span>[Sua foto de destaque - Cartões ou Toldo]</span>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="carousel">
-          <div class="slides" id="heroSlides" aria-live="polite">
-            <div class="slide current">
-              <img src="https://www.angraf.com.br/wp-content/images/produtos/large/366_gysxshxvhh1793ct3bjyr.jpg" alt="Adesivo impresso recortado" />
-              <div class="caption">Adesivo impresso recortado</div>
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">500+</span>
+                    <span class="label">Clientes Atendidos</span>
+                </div>
+                <div class="stat">
+                    <span class="number">2 dias</span>
+                    <span class="label">Antes do Prazo</span>
+                </div>
+                <div class="stat">
+                    <span class="number">100%</span>
+                    <span class="label">Satisfação Garantida</span>
+                </div>
             </div>
-            <div class="slide">
-              <img src="https://www.revendauainews.com.br/uploads/produtos/banner-lona-440-tamanho-diversos-lona-440-impressao-uv-bastao-ponteira-e-cordao-4x0-1714776806154298099566356ae63aa1b.png" alt="Banner impresso" />
-              <div class="caption">Banner impresso</div>
-            </div>
-            <div class="slide">
-              <img src="https://express.bonjourestamparia.com/cdn/shop/files/camiseta-marrom.png?crop=center&height=553&v=1737380985&width=461" alt="Camiseta personalizada" />
-              <div class="caption">Camiseta personalizada</div>
-            </div>
-          </div>
-          <button class="nav prev" id="prevSlide" aria-label="Anterior">‹</button>
-          <button class="nav next" id="nextSlide" aria-label="Próximo">›</button>
-          <div class="dots" id="carouselDots" aria-label="Selecionar slide"></div>
         </div>
-      </div>
     </section>
 
-    <!-- Vantagens -->
-    <section class="features container">
-      <div class="feature">
-        <h3>Atendimento Rápido</h3>
-        <p>Orçamentos pelo WhatsApp e prazos ágeis.</p>
-      </div>
-      <div class="feature">
-        <h3>Qualidade Profissional</h3>
-        <p>Materiais duráveis, impressão de alta definição.</p>
-      </div>
-      <div class="feature">
-        <h3>Local em Mogi</h3>
-        <p>Retire no endereço ou combinamos entrega.</p>
-      </div>
+    <!-- Produtos -->
+    <section id="produtos" class="produtos">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            <p class="section-subtitle">Calcule instantaneamente ou peça via WhatsApp</p>
+
+            <!-- Cartões de Visita -->
+            <div class="categoria">
+                <h3><i class="fas fa-id-card"></i> Cartões de Visita</h3>
+                <div class="produtos-grid">
+                    <div class="produto-card" data-tipo="cartao-fosco">
+                        <div class="produto-img">[Foto Cartão Fosco]</div>
+                        <h4>Cartão Fosco Premium</h4>
+                        <p>Couché 300g + Laminação Fosca + Verniz Localizado</p>
+                        <div class="calculadora">
+                            <select class="quantidade-select">
+                                <option value="100">100 un - R$ 89</option>
+                                <option value="250">250 un - R$ 149</option>
+                                <option value="500">500 un - R$ 219</option>
+                                <option value="1000">1000 un - R$ 349</option>
+                            </select>
+                            <button class="btn-pedido" onclick="fazerPedido('Cartão Fosco Premium', this)">
+                                <i class="fab fa-whatsapp"></i> Pedir Agora
+                            </button>
+                        </div>
+                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Entrega: 5 dias úteis</span>
+                    </div>
+
+                    <div class="produto-card" data-tipo="cartao-brilho">
+                        <div class="produto-img">[Foto Cartão Brilho]</div>
+                        <h4>Cartão Brilho Econômico</h4>
+                        <p>Couché 250g + Verniz Total Brilho</p>
+                        <div class="calculadora">
+                            <select class="quantidade-select">
+                                <option value="100">100 un - R$ 59</option>
+                                <option value="250">250 un - R$ 99</option>
+                                <option value="500">500 un - R$ 159</option>
+                                <option value="1000">1000 un - R$ 249</option>
+                            </select>
+                            <button class="btn-pedido" onclick="fazerPedido('Cartão Brilho Econômico', this)">
+                                <i class="fab fa-whatsapp"></i> Pedir Agora
+                            </button>
+                        </div>
+                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Entrega: 4 dias úteis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panfletos -->
+            <div class="categoria">
+                <h3><i class="fas fa-file-alt"></i> Panfletos</h3>
+                <div class="produtos-grid">
+                    <div class="produto-card" data-tipo="panfleto-frente">
+                        <div class="produto-img">[Foto Panfleto]</div>
+                        <h4>Panfleto Frente Colorida</h4>
+                        <p>Couché 90g - 100x140mm</p>
+                        <div class="calculadora">
+                            <select class="quantidade-select">
+                                <option value="500">500 un - R$ 129</option>
+                                <option value="1000">1000 un - R$ 199</option>
+                                <option value="2500">2500 un - R$ 349</option>
+                                <option value="5000">5000 un - R$ 549</option>
+                            </select>
+                            <button class="btn-pedido" onclick="fazerPedido('Panfleto Frente Colorida', this)">
+                                <i class="fab fa-whatsapp"></i> Pedir Agora
+                            </button>
+                        </div>
+                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Entrega: 5 dias úteis</span>
+                    </div>
+
+                    <div class="produto-card" data-tipo="panfleto-duplo">
+                        <div class="produto-img">[Foto Panfleto Frente/Verso]</div>
+                        <h4>Panfleto Frente e Verso</h4>
+                        <p>Couché 90g - 100x140mm - Colorido dos dois lados</p>
+                        <div class="calculadora">
+                            <select class="quantidade-select">
+                                <option value="500">500 un - R$ 179</option>
+                                <option value="1000">1000 un - R$ 279</option>
+                                <option value="2500">2500 un - R$ 499</option>
+                                <option value="5000">5000 un - R$ 799</option>
+                            </select>
+                            <button class="btn-pedido" onclick="fazerPedido('Panfleto Frente e Verso', this)">
+                                <i class="fab fa-whatsapp"></i> Pedir Agora
+                            </button>
+                        </div>
+                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Entrega: 5 dias úteis</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brindes -->
+            <div class="categoria destaque">
+                <div class="novidade-tag">🔥 NOVIDADE</div>
+                <h3><i class="fas fa-gift"></i> Brindes Personalizados</h3>
+                <p class="categoria-desc">Canetas, copos, camisetas e muito mais. Consulte nosso catálogo completo!</p>
+                <div class="produtos-grid">
+                    <div class="produto-card">
+                        <div class="produto-img">[Foto Brindes]</div>
+                        <h4>Kit Brindes Corporativos</h4>
+                        <p>Canetas, copos, squeezes personalizados</p>
+                        <button class="btn-pedido btn-consulta" onclick="consultarBrindes()">
+                            <i class="fab fa-whatsapp"></i> Consultar Catálogo
+                        </button>
+                        <span class="prazo"><i class="fas fa-shipping-fast"></i> Prazo sob consulta</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Corte a Laser (Futuro) -->
+            <div class="categoria futuro">
+                <h3><i class="fas fa-cut"></i> Corte a Laser & Gravação MDF</h3>
+                <p class="categoria-desc">Em breve: Produtos personalizados com corte preciso e gravação em MDF.</p>
+                <button class="btn-avise" onclick="aviseMe('Corte a Laser')">
+                    <i class="fas fa-bell"></i> Avise-me quando chegar
+                </button>
+            </div>
+        </div>
     </section>
 
-    <!-- Produtos em destaque -->
-    <section class="home-products container">
-      <h2>Produtos em Destaque</h2>
-      <div class="grid">
-        <article class="product-card">
-          <img src="https://www.angraf.com.br/wp-content/images/produtos/large/366_gysxshxvhh1793ct3bjyr.jpg" alt="Adesivo impresso recortado"/>
-          <h3>Adesivo recortado</h3>
-          <p>Impressão e recorte para vidros, vitrines, sinalização e branding.</p>
-          <div class="price">A partir de R$ 90,00/m²</div>
-          <button class="btn btn-sm" data-product='{"id":"adesivo","name":"Adesivo recortado","price":90,"unit":"m2","minArea":0.5}'>Adicionar</button>
-        </article>
-        <article class="product-card">
-          <img src="https://www.revendauainews.com.br/uploads/produtos/banner-lona-440-tamanho-diversos-lona-440-impressao-uv-bastao-ponteira-e-cordao-4x0-1714776806154298099566356ae63aa1b.png" alt="Banner impresso"/>
-          <h3>Banner Lona</h3>
-          <p>Lona 440g com impressão de alta qualidade. Ideal para promoções.</p>
-          <div class="price">A partir de R$ 75,00/m²</div>
-          <button class="btn btn-sm" data-product='{"id":"banner","name":"Banner lona 440g","price":75,"unit":"m2","minArea":0.5}'>Adicionar</button>
-        </article>
-        <article class="product-card">
-          <img src="https://express.bonjourestamparia.com/cdn/shop/files/camiseta-marrom.png?crop=center&height=553&v=1737380985&width=461" alt="Camiseta personalizada"/>
-          <h3>Camiseta</h3>
-          <p>Camisetas personalizadas para equipes, eventos e marcas.</p>
-          <div class="price">A partir de R$ 35,00 (unitário)</div>
-          <button class="btn btn-sm" data-product='{"id":"camiseta","name":"Camiseta personalizada","price":35,"unit":"un","minQty":1}'>Adicionar</button>
-        </article>
-      </div>
-      <div class="center">
-        <a class="btn btn-secondary" href="produtos.html">Ver todos</a>
-      </div>
+    <!-- Toldos & Fachadas -->
+    <section id="toldos" class="toldos">
+        <div class="container">
+            <h2 class="section-title">Toldos & Fachadas</h2>
+            <p class="section-subtitle">Projetos personalizados com instalação profissional</p>
+            
+            <div class="galeria-grid">
+                <div class="galeria-item grande">
+                    <div class="img-placeholder">[Foto Toldo 1 - Seu Melhor Projeto]</div>
+                    <div class="overlay">
+                        <h4>Toldo Retrátil Residencial</h4>
+                        <p>Projeto realizado em [Bairro]</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <div class="img-placeholder">[Foto Fachada 1]</div>
+                    <div class="overlay">
+                        <h4>Fachada Comercial</h4>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <div class="img-placeholder">[Foto Toldo 2]</div>
+                    <div class="overlay">
+                        <h4>Toldo Cortina</h4>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <div class="img-placeholder">[Foto Fachada 2]</div>
+                    <div class="overlay">
+                        <h4>Letra Caixa</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="orcamento-toldo">
+                <h3>Orçamento de Toldos e Fachadas</h3>
+                <p>Cada projeto é único. Envie as medidas e receba seu orçamento em até 2 horas.</p>
+                <button class="btn-primary btn-large" onclick="pedirOrcamentoToldo()">
+                    <i class="fab fa-whatsapp"></i> Solicitar Orçamento Especializado
+                </button>
+            </div>
+        </div>
     </section>
 
-    <!-- Chamada WhatsApp -->
-    <section class="cta-whats">
-      <div class="container cta-wrap">
-        <h2>Precisa de um orçamento agora?</h2>
-        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/5511968649673?text=Olá!%20Quero%20um%20orçamento.">Falar no WhatsApp</a>
-      </div>
+    <!-- Diferencial -->
+    <section class="diferencial">
+        <div class="container">
+            <h2 class="section-title">Por que a Vidal Design?</h2>
+            <div class="diferenciais-grid">
+                <div class="diferencial-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Entrega Antecipada</h3>
+                    <p>Prometemos 7 dias, entregamos em 5. Sempre 2 dias antes do combinado.</p>
+                </div>
+                <div class="diferencial-item">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Qualidade Garantida</h3>
+                    <p>Parceria com a FuturaIM, maior gráfica do Brasil. Tecnologia de ponta.</p>
+                </div>
+                <div class="diferencial-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Atendimento VIP</h3>
+                    <p>Você fala direto com o Gilney. Sem robôs, sem burocracia.</p>
+                </div>
+                <div class="diferencial-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Satisfação ou Refazemos</h3>
+                    <p>Algo saiu errado? Refazemos sem custo. Sua satisfação é prioridade.</p>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-wrap">
-      <div>
-        <strong>Vidal Design Solutions</strong><br/>
-        Rua Antonio Cordeiro, 57 – CEP 08715-470<br/>
-        Mogi das Cruzes – SP<br/>
-        Tel/WhatsApp: <a href="https://wa.me/5511968649673">+55 11 96864-9673</a><br/>
-        Email: <a href="mailto:vidaldesignsolutions@gmail.com">vidaldesignsolutions@gmail.com</a>
-      </div>
-      <nav class="footer-nav">
-        <a href="index.html">Início</a>
-        <a href="produtos.html">Produtos</a>
-        <a href="destaques.html">Destaques</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-    </div>
-    <div class="copy">© <span id="year"></span> Vidal Design Solutions. Todos os direitos reservados.</div>
-  </footer>
+    <!-- Sobre / Beto -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <div class="sobre-grid">
+                <div class="sobre-texto">
+                    <h2>A História por Trás da Vidal</h2>
+                    <p>Sou Gilney, pai de 5 filhos, CEO da Vidal Design Solutions e criador do Beto — 
+                       o azarão mais querido das redes sociais.</p>
+                    <p>A Vidal nasceu da necessidade de oferecer material gráfico de qualidade 
+                       sem o "azar" de atrasos e surpresas. Assim como o Beto vence os obstáculos 
+                       com bom humor, nós vencemos a burocracia da gráfica com agilidade.</p>
+                    <p><strong>Nossa missão:</strong> Transformar sua ideia em material impresso 
+                       com a velocidade que seu negócio precisa.</p>
+                    
+                    <div class="beto-box">
+                        <i class="fas fa-star"></i>
+                        <p>"Se o Beto confia, você pode confiar também!"</p>
+                        <small>— Beto Roberto Cavalcanti</small>
+                    </div>
+                </div>
+                <div class="sobre-imagem">
+                    <div class="img-placeholder grande">[Sua Foto ou Logo Beto]</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div id="cartDrawer" class="cart-drawer" aria-hidden="true">
-    <div class="cart-header">
-      <h3>Carrinho</h3>
-      <button id="closeCartBtn" aria-label="Fechar">×</button>
-    </div>
-    <div class="cart-body" id="cartItems"></div>
-    <div class="cart-footer">
-      <div class="cart-total">Total: R$ <span id="cartTotal">0,00</span></div>
-      <button class="btn btn-primary" id="checkoutBtn">Finalizar pelo WhatsApp</button>
-    </div>
-  </div>
+    <!-- Depoimentos -->
+    <section class="depoimentos">
+        <div class="container">
+            <h2 class="section-title">O que dizem nossos clientes</h2>
+            <div class="depoimentos-grid">
+                <div class="depoimento">
+                    <div class="estrelas">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Pedi cartões de visita e chegaram 3 dias antes do prazo! Qualidade impecável."</p>
+                    <span class="cliente">— Maria Silva, Empreendedora</span>
+                </div>
+                <div class="depoimento">
+                    <div class="estrelas">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"O toldo ficou perfeito. Atendimento do Gilney é diferenciado, recomendo!"</p>
+                    <span class="cliente">— João Pedro, Restaurante Sabor Caseiro</span>
+                </div>
+                <div class="depoimento">
+                    <div class="estrelas">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Já é a terceira vez que faço panfletos aqui. Nunca me deixaram na mão."</p>
+                    <span class="cliente">— Ana Costa, Clínica Estética</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    // Ano no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- CTA Final -->
+    <section id="contato" class="cta-final">
+        <div class="container">
+            <h2>Pronto para seu material chegar antes do prazo?</h2>
+            <p>Orçamento em 30 segundos. Entrega garantida com 2 dias de antecedência.</p>
+            <div class="botoes-cta">
+                <a href="https://wa.me/5511968649673" class="btn-whatsapp btn-large" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+                </a>
+                <button class="btn-secondary btn-large" onclick="scrollToCalc()">
+                    <i class="fas fa-calculator"></i> Calcular Orçamento
+                </button>
+            </div>
+        </div>
+    </section>
 
-    // Carrossel simples
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    const dotsWrap = document.getElementById('carouselDots');
-    const prev = document.getElementById('prevSlide');
-    const next = document.getElementById('nextSlide');
-    let current = 0, timer;
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>VIDAL<span>DESIGN</span></h3>
+                    <p>Solutions</p>
+                    <p class="slogan">"Onde não tem azar, só qualidade"</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Produtos</h4>
+                    <a href="#produtos">Cartões de Visita</a>
+                    <a href="#produtos">Panfletos</a>
+                    <a href="#produtos">Brindes</a>
+                    <a href="#toldos">Toldos & Fachadas</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contato</h4>
+                    <p><i class="fab fa-whatsapp"></i> (11) 96864-9673</p>
+                    <p><i class="fas fa-envelope"></i> gw.vidal@gmail.comr</p>
+                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, SP</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Siga o Beto</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vidal Design Solutions. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
-    function renderDots() {
-      dotsWrap.innerHTML = '';
-      slides.forEach((_, i) => {
-        const b = document.createElement('button');
-        b.className = 'dot' + (i === current ? ' active' : '');
-        b.setAttribute('aria-label', `Ir para slide ${i+1}`);
-        b.addEventListener('click', () => goTo(i));
-        dotsWrap.appendChild(b);
-      });
-    }
-    function goTo(i) {
-      slides[current].classList.remove('current');
-      current = (i + slides.length) % slides.length;
-      slides[current].classList.add('current');
-      renderDots();
-      restart();
-    }
-    function nextSlide(){ goTo(current+1); }
-    function prevSlide(){ goTo(current-1); }
-    function start(){ timer = setInterval(nextSlide, 5000); }
-    function stop(){ clearInterval(timer); }
-    function restart(){ stop(); start(); }
-
-    prev.addEventListener('click', prevSlide);
-    next.addEventListener('click', nextSlide);
-    document.querySelector('.carousel').addEventListener('mouseenter', stop);
-    document.querySelector('.carousel').addEventListener('mouseleave', start);
-    renderDots(); start();
-
-    // Botões adicionar ao carrinho
-    document.querySelectorAll('[data-product]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const p = JSON.parse(btn.getAttribute('data-product'));
-        window.Cart.addItem(p);
-        document.getElementById('openCartBtn').click();
-      });
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
